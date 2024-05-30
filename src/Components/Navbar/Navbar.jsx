@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { auth} from "../../firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import { signOut } from "firebase/auth";
+import './Navbar.css'
 
 const Navbar = () => {
   const [name, setName] = useState("User");
@@ -41,6 +42,17 @@ const Navbar = () => {
 
   return (
     <>
+    <header className="header">
+      <a href="/" className="logo">Logo</a>
+
+      <nav className="navbar">
+        <a href="/">CONTACT US</a>
+        <a href="/">SIGN OUT</a>
+       
+
+        
+      </nav>
+    </header>
       {user && (
         <>
           <span>Hi {name}</span>
@@ -55,7 +67,9 @@ const Navbar = () => {
       {logoutError && <div>Error: {logoutError}</div>}
       <br /><br />
     </>
+    
   );
+  
 };
 
 export default Navbar;

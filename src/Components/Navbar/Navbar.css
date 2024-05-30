@@ -1,0 +1,26 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    padding: 5px 10%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.navbar a{
+    position: relative;
+    margin-left: 40px;
+}
+.navbar a::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: white;
+    top: 100%;
+    left: 0;
+}

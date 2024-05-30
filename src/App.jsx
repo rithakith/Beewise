@@ -6,9 +6,11 @@ import BoxAnalysis from "./pages/BoxAnalysis/BoxAnalysis";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import "./App.css";
 
+
 function App() {
   return (
-    <>
+  
+ <>
       <BrowserRouter>
         <Routes>
           <Route path="/" Component={LoginPage}></Route>
@@ -20,7 +22,10 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
+    
+   
   );
+  
 }
 
 export default App;
