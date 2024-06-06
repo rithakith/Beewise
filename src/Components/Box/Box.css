@@ -1,0 +1,44 @@
+/* src/components/Box.css */
+
+.box-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #fdf8f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 200px; /* Adjust width as needed */
+  }
+  
+  .box-container h3 {
+    background-color: #ffd700;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+  
+  .box-image {
+    width: 100px;
+    margin: 10px 0;
+  }
+  
+  .box-details p {
+    margin: 5px 0;
+  }
+  
+  .view-box-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .view-box-link:hover {
+    background-color: #333;
+  }
+  

@@ -3,6 +3,7 @@ import Box from "../../Components/Box/Box";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import Navbar from "../../Components/Navbar/Navbar";
+import './Dashboard.css';
 
 const Dashboard = () => {
   const [boxes, setBoxes] = useState([]);

@@ -4,6 +4,7 @@ import { auth} from "../../firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
 import { signOut } from "firebase/auth";
 import './Navbar.css'
+import logo from '../../assets/beelogo.png';
 
 const Navbar = () => {
   const [name, setName] = useState("User");
@@ -41,35 +42,26 @@ const Navbar = () => {
   }, []);
 
   return (
-    <>
     <header className="header">
-      <a href="/" className="logo">Logo</a>
+    <a href="/" className="logo">
+      <img src={logo} alt="Logo" />
+    </a>
 
-      <nav className="navbar">
-        <a href="/">CONTACT US</a>
-        <a href="/">SIGN OUT</a>
-       
-
-        
-      </nav>
-    </header>
-      {user && (
+    <nav className="navbar">
+      <a href="/">CONTACT US</a>
+      {user ? (
         <>
-          <span>Hi {name}</span>
-          <span
-            onClick={handleSignout}
-            style={{ cursor: "pointer", marginLeft: "10px" }}
-          >
-            Sign out
-          </span>
+          <span className="user-name">Hi, {name}</span>
+          <button onClick={handleSignout} className="sign-out-btn">SIGN OUT</button>
         </>
+      ) : (
+        <a href="/login">LOGIN</a>
       )}
-      {logoutError && <div>Error: {logoutError}</div>}
-      <br /><br />
-    </>
-    
-  );
-  
+    </nav>
+
+    {logoutError && <div className="error-message">Error: {logoutError}</div>}
+  </header>
+);
 };
 
 export default Navbar;

@@ -3,6 +3,9 @@ import { useState } from "react";
 import { auth } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import './LoginPage.css';
+import logo from '../../assets/logo.png'; 
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const [loginSuccess, setLoginSuccess] = useState(false);

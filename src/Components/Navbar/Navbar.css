@@ -1,26 +1,49 @@
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 80%;
-    padding: 5px 10%;
-    
+/* src/components/Navbar.css */
+
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.navbar a{
-    position: relative;
-    margin-left: 40px;
-}
-.navbar a::before{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: white;
-    top: 100%;
-    left: 0;
-}
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .logo img {
+    height: 60px;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .navbar a,
+  .navbar .sign-out-btn {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .navbar .sign-out-btn {
+    border: none;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .navbar .user-name {
+    margin-right: 10px;
+    font-weight: normal;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
