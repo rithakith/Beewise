@@ -35,9 +35,18 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      {boxes.map((box) => (
-        <Box key={box.id} box={box} />
-      ))}
+      <div className="content">
+        <h2>Welcome to <span>BeeWise Haven</span></h2>
+        <div className="box-collection">
+          {boxes.map((box) => (
+            <Box key={box.id} box={box} />
+          ))}
+          <div className="box-card add-new-box">
+            <span>+</span>
+            <p>Add New Bee Box</p>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

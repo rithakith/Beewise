@@ -1,0 +1,32 @@
+.box-card {
+    background-color: #eed8b7;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .box-card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .box-card p {
+    margin: 5px 0;
+  }
+  
+  .view-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #97bc65;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .view-link:hover {
+    text-decoration: underline;
+  }
+  
