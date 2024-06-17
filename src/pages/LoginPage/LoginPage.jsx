@@ -38,50 +38,37 @@ const LoginPage = () => {
       });
   };
   return (
-    <>
-      <h1>Login </h1>
+    <div className="login-container">
+    <div className="login-box">
+      <img src={logo} alt="Logo" className="logo" />
+      <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
           type="email"
           placeholder="Email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
+          onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
         <input
           type="password"
           placeholder="Password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
+          onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-
         <input type="submit" value="Login" />
-        {/* dont touch below */}
-        {loginSuccess && (
-          <>
-            <div>Logged In successfully!!!</div>
-          </>
-        )}
-        {loginFail && (
-          <>
-            <div>{loginError}</div>
-          </>
-        )}
-        {/* dont touch above */}
-        <p>
-          Don't have an account? then{" "}
-          <span>
-            <u>
-              <a href="/signup">Signup</a>
-            </u>
-          </span>
-        </p>
+        {loginSuccess && <div className="success">Logged In successfully!!!</div>}
+        {loginFail && <div className="error">{loginError}</div>}
       </form>
-    </>
-  );
+      <p>
+        Don't have an account?{" "}
+        <span>
+          <u>
+            <a href="/signup">Signup</a>
+          </u>
+        </span>
+      </p>
+    </div>
+  </div>
+);
 };
-
 export default LoginPage;

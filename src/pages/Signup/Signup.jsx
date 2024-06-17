@@ -1,9 +1,10 @@
-import React from "react";
-import { useState } from "react";
-import { auth } from "../../firebase/config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { updateProfile } from "firebase/auth";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../../firebase/config";
+import './Signup.css';
+import logo from '../../assets/logo.png';
+
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -13,11 +14,11 @@ const Signup = () => {
   const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [signUpFail, setSignUpFail] = useState(false);
   const [signUpError, setSignUpError] = useState("");
+
   const handleSignup = async (e) => {
     e.preventDefault();
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed up
         const user = userCredential.user;
         updateProfile(user, { displayName: username });
 
@@ -28,69 +29,54 @@ const Signup = () => {
           setSignUpSuccess(false);
           navigate("/dashboard");
         }, 2500);
-        // ...
       })
       .catch((error) => {
         setSignUpFail(true);
-        const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
         setSignUpError(error.message);
-        // ..
       });
   };
+
   return (
-    <>
-      <h1>Signuphhhhhhh</h1>
-      <form onSubmit={handleSignup}>
-        <input
-          type="text"
-          name="username"
-          id=""
-          placeholder="Username"
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          value={email}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          value={password}
-        />
-        <input type="submit" value="Sign up" />
-        {/* dont touch below */}
-        {signUpSuccess && (
-          <>
-            <div>Logged In successfully!!!</div>
-          </>
-        )}
-        {signUpFail && (
-          <>
-            <div>{signUpError}</div>
-          </>
-        )}
-        {/* dont touch above */}
+    <div className="signup-container">
+      <div className="signup-box">
+        <img src={logo} alt="Logo" className="logo" />
+        <h2>Signup</h2>
+        <form onSubmit={handleSignup}>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <input type="submit" value="Sign up" />
+          {signUpSuccess && <div className="success">Signed up successfully!!!</div>}
+          {signUpFail && <div className="error">{signUpError}</div>}
+        </form>
         <p>
-          Already have an account? then{" "}
+          Already have an account?{" "}
           <span>
             <u>
               <a href="/login">Login</a>
             </u>
           </span>
         </p>
-      </form>
-    </>
+      </div>
+    </div>
   );
 };
 

@@ -1,32 +1,39 @@
+/* Box.css */
+
+.box-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
 .box-card {
-    background-color: #eed8b7;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 200px;
-    text-align: center;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  
-  .box-card h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .box-card p {
-    margin: 5px 0;
-  }
-  
-  .view-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #97bc65;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .view-link:hover {
-    text-decoration: underline;
-  }
-  
+  background-color: #eed8b7;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  height: 250px;
+  text-align: center;
+  margin: 90px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.box-card:hover {
+  transform: scale(1.05);
+}
+
+.bee-box-image {
+  width: 100px; 
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.box-card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.box-card p {
+  margin: 5px 0;
+}

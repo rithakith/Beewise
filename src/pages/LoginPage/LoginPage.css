@@ -1,92 +1,92 @@
-/* src/components/LoginPage/LoginPage.css */
+/* LoginPage.css */
 
-.login-page {
-    display: flex;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-  }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.login-box {
+  background-color: #ffffff;
+  margin-top: 7%;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.logo {
+  width: 300px;
   
-  .login-image {
-    flex: 1;
-    background: url('../../assets/bee-image.jpg') no-repeat center center/cover; /* Replace with your actual image */
-  }
-  
-  .login-form-container {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fdf8f0;
-  }
-  
-  .login-form {
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .login-logo {
-    width: 150px;
-    margin-bottom: 20px;
-  }
-  
-  .login-form h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .form-footer {
-    text-align: right;
-    margin-bottom: 20px;
-  }
-  
-  .forgot-password {
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .forgot-password:hover {
-    text-decoration: underline;
-  }
-  
-  .login-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .login-button:hover {
-    background-color: #333;
-  }
-  
-  .success-message, .error-message {
-    margin-top: 15px;
-    color: green;
-  }
-  
-  .error-message {
-    color: red;
-  }
-  
+}
+
+.login-box h2 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
+  color: #333;
+ 
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.login-box input[type="submit"] {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-box input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.login-box p {
+  margin-top: 20px;
+}
+
+.login-box a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.login-box a:hover {
+  text-decoration: underline;
+}

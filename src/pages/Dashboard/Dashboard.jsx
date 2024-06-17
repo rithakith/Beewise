@@ -4,6 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import Navbar from "../../Components/Navbar/Navbar";
 import './Dashboard.css';
+import beeBoxImage from '../../assets/beebox.png';
 
 const Dashboard = () => {
   const [boxes, setBoxes] = useState([]);
@@ -36,14 +37,16 @@ const Dashboard = () => {
     <>
       <Navbar />
       <div className="content">
-        <h2>Welcome to <span>BeeWise Haven</span></h2>
+        <h1>Welcome to <span>BeeWise Haven</span></h1>
         <div className="box-collection">
-          {boxes.map((box) => (
-            <Box key={box.id} box={box} />
+          {boxes.map((box, index) => (
+            <Box key={box.id} box={box} index={index + 1} />
           ))}
           <div className="box-card add-new-box">
+          <h2>Add New Bee Box</h2>
+          <img src={beeBoxImage} alt="Bee Box" className="bee-box-image" />
             <span>+</span>
-            <p>Add New Bee Box</p>
+            
           </div>
         </div>
       </div>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/config";
-import { onAuthStateChanged } from "firebase/auth";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import './Navbar.css';
 import logo from '../../assets/beelogo.png';
 
@@ -46,13 +45,11 @@ const Navbar = () => {
 
   return (
     <header className="header">
-      {/* Use onClick to handle logo click */}
       <a href="/" className="logo" onClick={handleLogoClick}>
         <img src={logo} alt="Logo" />
       </a>
 
       <nav className="navbar">
-        <a href="/">CONTACT US</a>
         {user ? (
           <>
             <span className="user-name">Hi, {name}</span>
