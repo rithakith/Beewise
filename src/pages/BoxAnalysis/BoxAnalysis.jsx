@@ -1,8 +1,9 @@
 // BoxAnalysis.jsx
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import GraphCard from "../../Components/GraphCard/GraphCard"; // Adjust path as needed
-import GeneralInfoCard from "../../Components/GeneralInfoCard/GeneralInfoCard"; // Adjust path as needed
+import GraphCard from "../../Components/GraphCard/GraphCard";
+import GeneralInfoCard from "../../Components/GeneralInfoCard/GeneralInfoCard";
+import './BoxAnalysis.css'; // Import your CSS file for styling
 
 const BoxAnalysis = () => {
   // Simulated data for demonstration
@@ -11,19 +12,42 @@ const BoxAnalysis = () => {
   const co2Data = [400, 410, 420, 430, 440, 450]; // Example CO2 data
   const weightData = [50, 51, 52, 53, 54, 55]; // Example weight data
 
+  const [sugarSyrupActive, setSugarSyrupActive] = useState(false);
+
+  const toggleSugarSyrup = () => {
+    setSugarSyrupActive(!sugarSyrupActive);
+  };
+
   return (
     <>
       <Navbar />
       <div className="content">
         <h1>Box Analysis</h1>
-        <div className="graph-cards">
-          <GraphCard title="Temperature (°C)" data={temperatureData} />
-          <GraphCard title="Humidity (%)" data={humidityData} />
-          <GraphCard title="CO2 Level (ppm)" data={co2Data} />
-          <GraphCard title="Weight (kg)" data={weightData} />
+        <div className="card-container">
+          <div className="card">
+            <GraphCard title="Temperature (°C)" data={temperatureData} />
+            
+           
+          </div>
+          <div className="card">
+            <GraphCard title="Humidity (%)" data={humidityData} />
+           
+          </div>
+          <div className="card">
+            <GraphCard title="CO2 Level (ppm)" data={co2Data} />
+            
+          </div>
+          <div className="card">
+            <GraphCard title="Weight (kg)" data={weightData} />
+            
+          </div>
         </div>
-        <GeneralInfoCard ageOfBeehive={6} /> {/* Example age of beehive */}
-        <button className="activate-sugar-syrup-btn">Activate Sugar Syrup Mode</button>
+      </div>
+      <div className="card">
+      <GeneralInfoCard ageOfBeehive={6} />
+            <button className={`sugar-syrup-btn ${sugarSyrupActive ? 'active' : ''}`} onClick={toggleSugarSyrup}>
+              {sugarSyrupActive ? 'Sugar Syrup Mode: ON' : 'Sugar Syrup Mode: OFF'}
+            </button>
       </div>
     </>
   );
