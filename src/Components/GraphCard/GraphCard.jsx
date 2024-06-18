@@ -1,16 +1,14 @@
-// GraphCard.jsx
+// src/Components/GraphCard/GraphCard.jsx
 import React from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import "./GraphCard.css";
 
 const GraphCard = ({ title, data }) => {
-  // Example data structure: [{name: 'Jan', value: 30}, {name: 'Feb', value: 40}, ...]
-  const chartData = data.map((value, index) => ({ name: `Month ${index + 1}`, value }));
-
   return (
     <div className="graph-card">
       <h3>{title}</h3>
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={chartData}>
+      <ResponsiveContainer width="100%" height={200}>
+        <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />

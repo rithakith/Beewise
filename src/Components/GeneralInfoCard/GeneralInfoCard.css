@@ -1,0 +1,17 @@
+.toggle-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .toggle-button.on {
+  background-color: #FDC91E ;
+  }
+  
+  .toggle-button.off {
+    background-color: gray;
+  }
