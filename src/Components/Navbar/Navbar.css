@@ -1,49 +1,50 @@
-/* src/components/Navbar.css */
-
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
-  }
-  
-  .logo img {
-    height: 60px;
-  }
-  
-  .navbar {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .navbar a,
-  .navbar .sign-out-btn {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .navbar .sign-out-btn {
-    border: none;
-    background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
-  
-  .navbar .user-name {
-    margin-right: 10px;
-    font-weight: normal;
-  }
-  
-  .error-message {
-    color: red;
-    margin-top: 10px;
-    text-align: center;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 60px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar a,
+.navbar .sign-out-btn,
+.navbar .login-btn {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.navbar .user-name-box {
+  border: none;
+  background-color: #f0f0f0;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.navbar .sign-out-btn {
+  background-color: #000;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}

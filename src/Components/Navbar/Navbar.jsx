@@ -52,11 +52,11 @@ const Navbar = () => {
       <nav className="navbar">
         {user ? (
           <>
-            <span className="user-name">Hi, {name}</span>
+            <span className="user-name-box">Hi, {name}</span>
             <button onClick={handleSignout} className="sign-out-btn">SIGN OUT</button>
           </>
         ) : (
-          <a href="/login">LOGIN</a>
+          <a href="/login" className="login-btn">LOGIN</a>
         )}
       </nav>
 
