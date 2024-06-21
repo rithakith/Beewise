@@ -14,11 +14,15 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "boxes"));
-        const boxData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setBoxes(boxData);
+        const boxData = querySnapshot.docs.map((doc) => {
+          const data = { id: doc.id, ...doc.data() };
+          return data;
+        });
+
+        // Filter out the box with id "box2"
+        const filteredBoxData = boxData.filter((box) => box.id !== "box2");
+
+        setBoxes(filteredBoxData);
       } catch (error) {
         console.error("Error fetching boxes: ", error);
       } finally {
@@ -43,10 +47,9 @@ const Dashboard = () => {
             <Box key={box.id} box={box} index={index + 1} />
           ))}
           <div className="box-card add-new-box">
-          <h2>Add New Bee Box</h2>
-          <img src={beeBoxImage} alt="Bee Box" className="bee-box-image" />
+            <h2>Add New Bee Box</h2>
+            <img src={beeBoxImage} alt="Bee Box" className="bee-box-image" />
             <span>+</span>
-            
           </div>
         </div>
       </div>

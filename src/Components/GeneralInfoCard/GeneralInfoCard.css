@@ -1,10 +1,9 @@
 .toggle-button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 25px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin-top: 10px;
     transition: background-color 0.3s;
   }
   
@@ -15,3 +14,36 @@
   .toggle-button.off {
     background-color: gray;
   }
+  .general-info-card-01 {
+    height:100;
+    width: 700px;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .general-info-card-02 {
+    height:100;
+    width: 700px;
+    display: inline-block;
+    margin-left: 20px;
+    padding-right: 10px;
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+  }
+  .general-info-card-01 p{
+padding-left: 20px;
+  }
+  .general-info-card-02 h2{
+    display: inline-block;
+    padding-right: 20px;
+  
+  }
+    
