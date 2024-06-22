@@ -16,11 +16,13 @@ const Dashboard = () => {
         const querySnapshot = await getDocs(collection(db, "boxes"));
         const boxData = querySnapshot.docs.map((doc) => {
           const data = { id: doc.id, ...doc.data() };
+          console.log("Fetched box:", data);  // Log each fetched box
           return data;
         });
 
         // Filter out the box with id "box2"
         const filteredBoxData = boxData.filter((box) => box.id !== "box2");
+        console.log("Filtered boxes:", filteredBoxData);  // Log the filtered boxes
 
         setBoxes(filteredBoxData);
       } catch (error) {

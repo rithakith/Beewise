@@ -83,11 +83,14 @@ body {
   }
   
   .signup-box a {
-    color: #FDC91E;
+    color: #000000;
     text-decoration: none;
   }
   
   .signup-box a:hover {
     text-decoration: underline;
+  }
+  .signup-box u{
+    color: white;
   }
   
