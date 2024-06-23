@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./GeneralInfoCard.css";
 
 const GeneralInfoCard = () => {
   const [syrupMode, setSyrupMode] = useState(false);
 
+  useEffect(() => {
+    let timer;
+    if (syrupMode) {
+      // Set a timer to turn off the syrupMode after 5 seconds
+      timer = setTimeout(() => {
+        setSyrupMode(false);
+      }, 5000);
+    }
+
+    // Cleanup the timer if the component unmounts or syrupMode changes
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [syrupMode]);
+
   const handleToggle = () => {
-    setSyrupMode(!syrupMode);
+    setSyrupMode(prevState => !prevState);
   };
 
   return (

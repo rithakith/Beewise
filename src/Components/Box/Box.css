@@ -1,39 +1,62 @@
-/* Box.css */
-
-.box-card-link {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
+.box-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px auto;  /* Center the container with auto margin */
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;  /* Ensure a maximum width for the container */
 }
 
-.box-card {
+.box-main-info, .box-additional-info {
   background-color: #eed8b7;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  width: 200px;
-  height: 250px;
-  text-align: center;
-  margin: 90px;
+  width: 1000px;  /* Equal width for both boxes */
+  text-align: center;  /* Centered text for better balance */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;  /* Add margin between the boxes */
 }
 
-.box-card:hover {
+.box-main-info:hover, .box-additional-info:hover {
   transform: scale(1.05);
 }
 
 .bee-box-image {
-  width: 100px; 
+  width: 100px;
   height: 100px;
+  margin: 0 auto 10px auto;  /* Center the image horizontally */
+}
+
+.box-main-info h2, .box-additional-info h3 {
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
-.box-card h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.box-card p {
+.box-main-info p, .box-additional-info p {
   margin: 5px 0;
+}
+
+.view-details-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #ffbf00;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  align-self: center;  /* Center the button within the box */
+}
+
+.view-details-link:hover {
+  background-color: #e0a800;
 }

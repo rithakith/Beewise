@@ -48,11 +48,7 @@ const Dashboard = () => {
           {boxes.map((box, index) => (
             <Box key={box.id} box={box} index={index + 1} />
           ))}
-          <div className="box-card add-new-box">
-            <h2>Add New Bee Box</h2>
-            <img src={beeBoxImage} alt="Bee Box" className="bee-box-image" />
-            <span>+</span>
-          </div>
+          
         </div>
       </div>
     </>
