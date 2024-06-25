@@ -52,9 +52,12 @@ const BoxAnalysis = () => {
   return (
     <>
       <Navbar />
+      
       <div className="box-analysis-container">
         
         <h2>Bee Box 01</h2>
+
+        
         <div className="graph-cards-container">
           <GraphCard title="Temperature (°C)" data={temperatureData} />
           <GraphCard title="Humidity (%)" data={humidityData} />
