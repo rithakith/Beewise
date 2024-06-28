@@ -53,3 +53,51 @@
 .add-new-box p {
   margin: 10px 0 0;
 }
+/* Dashboard.css */
+
+.content {
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.box-collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.box-analysis-container {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.graph-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+/* src/Components/BoxAnalysis/BoxAnalysis.css */
+.box-analysis-container {
+  padding: 10px;
+ 
+}
+
+.graph-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.box-analysis-container h2{
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+padding-left: 10px;
+}
