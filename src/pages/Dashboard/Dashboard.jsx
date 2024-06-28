@@ -59,6 +59,8 @@ const Dashboard = () => {
                   minTemperature: Math.min(...(box.temperatureData || []).map(d => d.value)),
                   maxHumidity: Math.max(...(box.humidityData || []).map(d => d.value)),
                   minHumidity: Math.min(...(box.humidityData || []).map(d => d.value)),
+                  maxCo2Level: Math.max(...(box.co2Data || []).map(d => d.value)),
+                  minCo2Level: Math.min(...(box.co2Data || []).map(d => d.value)),
                   startDate: box.temperatureData && box.temperatureData.length > 0 ? box.temperatureData[0].name : null,
                   id: box.id
                 }}

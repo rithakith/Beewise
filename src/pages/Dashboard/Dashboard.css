@@ -1,6 +1,6 @@
 .dashboard {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: #ffffff;
+ 
   min-height: 100vh;
 }
 
@@ -27,39 +27,13 @@
   justify-content: center;
 }
 
-.add-new-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  color: #000000;
-  cursor: pointer;
-  background-color: #FDF6E3;
-  border: 2px dashed #000000;
-  width: 200px;
-  height: 250px;
-}
-
-.add-new-box img {
-  width: 100px; 
-  height: 100px;
-  margin-bottom: 10px;
-}
-.add-new-box span {
-  font-size: 48px;
-}
-
-.add-new-box p {
-  margin: 10px 0 0;
-}
-
-
 .content {
   padding: 20px;
 }
 
+
 h1 {
+  
   text-align: center;
 }
 
@@ -71,10 +45,10 @@ h1 {
 }
 
 .box-analysis-container {
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
 }
 
 .graph-cards-container {

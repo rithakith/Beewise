@@ -1,4 +1,3 @@
-// src/Components/Box/Box.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import './Box.css';
@@ -20,8 +19,9 @@ const Box = ({ box, index }) => {
         <p>Min Temperature: {box.minTemperature}°C</p>
         <p>Max Humidity: {box.maxHumidity}%</p>
         <p>Min Humidity: {box.minHumidity}%</p>
+        <p>Max CO<sub>2</sub> Level: {box.maxCo2Level} ppm</p>
+        <p>Min CO<sub>2</sub> Level: {box.minCo2Level} ppm</p>
         <p>Start Date: {box.startDate ? new Date(box.startDate).toLocaleDateString() : 'Invalid Date'}</p>
-        
       </div>
     </div>
   );
