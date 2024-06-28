@@ -21,9 +21,7 @@ const Box = ({ box, index }) => {
         <p>Max Humidity: {box.maxHumidity}%</p>
         <p>Min Humidity: {box.minHumidity}%</p>
         <p>Start Date: {box.startDate ? new Date(box.startDate).toLocaleDateString() : 'Invalid Date'}</p>
-        <Link to={`/dashboard/${box.id}`} className="view-details-link">
-          View More Details
-        </Link>
+        
       </div>
     </div>
   );
