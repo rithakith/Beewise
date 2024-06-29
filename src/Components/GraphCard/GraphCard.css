@@ -1,10 +1,14 @@
 .graph-card {
-    width: 40px; 
+    width: 400px; 
     flex: 1 1 calc(40% - 20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     background: white;
     border-radius: 8px;
-    height: 250px;
+    height: 320px;
   }
-  
+ 
+  .graph-stats{
+    padding-left: 70px;
+   
+  }

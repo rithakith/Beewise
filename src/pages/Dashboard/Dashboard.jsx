@@ -45,11 +45,11 @@ const Dashboard = () => {
     <>
       <Navbar />
       <div className="content">
-        <h1>Welcome to <span>BeeWise Haven</span></h1>
+        <h1>Welcome to <span>Bee</span>Wise Haven</h1>
         <div className="box-collection">
           {boxes.map((box, index) => (
             <div key={box.id} className="box-analysis-container">
-              <h2>Bee Box {index + 1}</h2>
+              <h2>Bee Box </h2>
               <Box
                 box={{
                   humidity: box.humidity,
@@ -61,7 +61,6 @@ const Dashboard = () => {
                   minHumidity: Math.min(...(box.humidityData || []).map(d => d.value)),
                   maxCo2Level: Math.max(...(box.co2Data || []).map(d => d.value)),
                   minCo2Level: Math.min(...(box.co2Data || []).map(d => d.value)),
-                  startDate: box.temperatureData && box.temperatureData.length > 0 ? box.temperatureData[0].name : null,
                   id: box.id
                 }}
                 index={index + 1}
@@ -70,8 +69,9 @@ const Dashboard = () => {
                 <GraphCard title="Temperature (°C)" data={box.temperatureData || []} />
                 <GraphCard title="Humidity (%)" data={box.humidityData || []} />
                 <GraphCard title="CO₂ Level (ppm)" data={box.co2Data || []} />
+                <GraphCard title="Weight (kg)" data={box.weightData || []} />
               </div>
-              <GeneralInfoCard />
+              <GeneralInfoCard startDate={box.temperatureData && box.temperatureData.length > 0 ? box.temperatureData[0].name : null} />
             </div>
           ))}
         </div>

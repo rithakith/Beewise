@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./GeneralInfoCard.css";
 
-const GeneralInfoCard = () => {
+const GeneralInfoCard = ({ startDate }) => {
   const [syrupMode, setSyrupMode] = useState(false);
 
   useEffect(() => {
@@ -29,6 +29,7 @@ const GeneralInfoCard = () => {
         <div className="general-info-card-01">
           <h2>General Information</h2>
           <p>Age of Beehive: 6 months</p>
+          <p>Start Date: {startDate ? new Date(startDate).toLocaleDateString() : 'Invalid Date'}</p>
         </div>
         <div className="general-info-card-02">
           <h2>Sugar Syrup Activation Mode:</h2>

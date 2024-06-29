@@ -1,9 +1,8 @@
-// src/Components/GraphCard/GraphCard.jsx
 import React from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import "./GraphCard.css";
 
-const GraphCard = ({ title, data }) => {
+const GraphCard = ({ title, data, min, max }) => {
   return (
     <div className="graph-card">
       <h3>{title}</h3>
@@ -17,6 +16,10 @@ const GraphCard = ({ title, data }) => {
           <Line type="monotone" dataKey="value" stroke="#8884d8" />
         </LineChart>
       </ResponsiveContainer>
+      <div className="graph-stats">
+        <p>Max: {max}</p>
+        <p>Min: {min}</p>
+      </div>
     </div>
   );
 };
