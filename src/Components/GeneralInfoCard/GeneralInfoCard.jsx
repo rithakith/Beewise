@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { getDatabase, ref, set } from "firebase/database";
 import "./GeneralInfoCard.css";
 
 const GeneralInfoCard = ({ startDate }) => {
@@ -10,6 +11,7 @@ const GeneralInfoCard = ({ startDate }) => {
       // Set a timer to turn off the syrupMode after 5 seconds
       timer = setTimeout(() => {
         setSyrupMode(false);
+        updateSyrupModeInDatabase(false); // Update database when syrupMode is turned off
       }, 5000);
     }
 
@@ -20,7 +22,20 @@ const GeneralInfoCard = ({ startDate }) => {
   }, [syrupMode]);
 
   const handleToggle = () => {
-    setSyrupMode(prevState => !prevState);
+    const newSyrupMode = !syrupMode;
+    setSyrupMode(newSyrupMode);
+    updateSyrupModeInDatabase(newSyrupMode); // Update database when button is toggled
+  };
+
+  const updateSyrupModeInDatabase = (mode) => {
+    const db = getDatabase();
+    set(ref(db, 'syrupMode'), mode)
+      .then(() => {
+        console.log("Syrup mode updated successfully in the database.");
+      })
+      .catch((error) => {
+        console.error("Error updating syrup mode in the database: ", error);
+      });
   };
 
   return (
