@@ -1,10 +1,19 @@
-.header {
+.sidebar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.header {
   padding: 10px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
 }
 
 .logo img {
@@ -14,7 +23,8 @@
 
 .navbar {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  padding: 20px;
   gap: 20px;
 }
 
@@ -30,19 +40,22 @@
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
+  text-align: center;
 }
 
 .navbar .user-name-box {
   border: none;
-  background-color: #f0f0f0;
+  background-color: hwb(36 72% 7%);
   color: #000;
+  margin-top: 150px;
   padding: 10px 20px;
   border-radius: 5px;
+  text-align: center;
 }
 
 .navbar .sign-out-btn {
   background-color: #000000;
-  margin-right: 10px;
+  margin-top: auto;
 }
 
 .error-message {

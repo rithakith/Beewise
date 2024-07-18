@@ -44,12 +44,20 @@ const Navbar = () => {
   };
 
   return (
-    <header className="header">
-      <a href="/" className="logo" onClick={handleLogoClick}>
-        <img src={logo} alt="Logo" />
-      </a>
+    <div className="sidebar">
+      <header className="header">
+        <a href="/" className="logo" onClick={handleLogoClick}>
+          <img src={logo} alt="Logo" />
+        </a>
+      </header>
 
       <nav className="navbar">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/temperature">Temperature</a>
+        <a href="/humidity">Humidity </a>
+        <a href="/airquality">Air Quality Level</a>
+        <a href="/weight">Weight </a>
+        
         {user ? (
           <>
             <span className="user-name-box">Hi, {name}</span>
@@ -61,7 +69,7 @@ const Navbar = () => {
       </nav>
 
       {logoutError && <div className="error-message">Error: {logoutError}</div>}
-    </header>
+    </div>
   );
 };
 

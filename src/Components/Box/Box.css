@@ -1,60 +1,15 @@
-.box-container {
-  display: flex;
-  justify-content: center;  /* Center the container */
-  align-items: center;  /* Center the content */
-  margin: 20px auto;  
+/* Box.css */
+.box {
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 1400px;  
 }
 
-.box-main-info {
+
+.info-boxes-container {
   display: flex;
-  background-color: #eed8b7;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 100%;  /* Adjust width as needed */
-  height: 250px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 10px;  
-  justify-content: space-between;
-  align-items: center;
-}
-
-.bee-box-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.bee-box-image {
-  padding-left: 450px;
-  padding-bottom: 50px;
-  width: 175px;
-  height: 175px;
-}
-
-.box-main-info h2 {
-  text-align: left;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.box-main-info .info {
-  display: flex;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 20px;
-  flex-direction: column;
-  padding-top: 100px;
-  padding-bottom: 50px;
-  padding-right: 500px;
-  margin-left: 20px;
-}
-
-.box-main-info p, .box-additional-info p {
-  margin: 5px 0;
+  justify-content: space-around;
 }

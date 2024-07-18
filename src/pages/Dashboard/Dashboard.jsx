@@ -6,7 +6,6 @@ import './Dashboard.css';
 import GeneralInfoCard from "../../Components/GeneralInfoCard/GeneralInfoCard";
 import GraphCard from "../../Components/GraphCard/GraphCard";
 import Box from "../../Components/Box/Box"; // Import the Box component
-import beeBoxImage from '../../assets/beebox.png';
 
 const Dashboard = () => {
   const [boxes, setBoxes] = useState([]);
@@ -45,23 +44,17 @@ const Dashboard = () => {
     <>
       <Navbar />
       <div className="content">
-        <h1>Welcome to <span>Bee</span>Wise Haven</h1>
+      
         <div className="box-collection">
           {boxes.map((box, index) => (
             <div key={box.id} className="box-analysis-container">
-              <h2>Bee Box </h2>
+              <h2>Dashboard</h2>
               <Box
                 box={{
                   humidity: box.humidity,
                   temperature: box.temperature,
                   co2Level: box.co2Level,
-                  maxTemperature: Math.max(...(box.temperatureData || []).map(d => d.value)),
-                  minTemperature: Math.min(...(box.temperatureData || []).map(d => d.value)),
-                  maxHumidity: Math.max(...(box.humidityData || []).map(d => d.value)),
-                  minHumidity: Math.min(...(box.humidityData || []).map(d => d.value)),
-                  maxCo2Level: Math.max(...(box.co2Data || []).map(d => d.value)),
-                  minCo2Level: Math.min(...(box.co2Data || []).map(d => d.value)),
-                  id: box.id
+                  
                 }}
                 index={index + 1}
               />

@@ -1,0 +1,21 @@
+/* InfoBox.css */
+.info-box {
+    border: 1px solid #ffffff;
+    background: hwb(36 72% 7%);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    flex: 1; /* Allow flexible growth */
+    min-width: 100px; /* Minimum width to maintain readability */
+    margin: 5px;
+  }
+  
+  .info-box h3 {
+    font-size: 16px;
+  }
+  
+  .info-box p {
+    font-size: 14px;
+    margin: 0;
+  }
+  

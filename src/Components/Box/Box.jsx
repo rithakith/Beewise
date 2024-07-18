@@ -1,21 +1,18 @@
-import React from "react";
+// Box.js
+import React from 'react';
+import InfoBox from '../InfoBox/InfoBox';
 import './Box.css';
-import beeBoxImage from '../../assets/beebox.png';  // Adjust the path as needed
 
 const Box = ({ box, index }) => {
   return (
-    <div className="box-container">
-      <div className="box-main-info">
-        <div className="bee-box-content">
-          <h2>Bee Box {index.toString().padStart(2, '0')}</h2>
-          <img src={beeBoxImage} alt="Bee Box" className="bee-box-image" />
-        </div>
-        <div className="info">
-          <p>Humidity: {box.humidity}%</p>
-          <p>Temperature: {box.temperature}°C</p>
-          <p>CO<sub>2</sub> Level: {box.co2Level} ppm</p>
-        </div>
+    <div className="box">
+     
+      <div className="info-boxes-container">
+        <InfoBox title="Temperature" value={box.temperature} unit="°C" />
+        <InfoBox title="Humidity" value={box.humidity} unit="%" />
+        <InfoBox title="CO₂ Level" value={box.co2Level} unit="ppm" />
       </div>
+    
     </div>
   );
 };
