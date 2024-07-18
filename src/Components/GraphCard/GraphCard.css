@@ -12,3 +12,22 @@
     padding-left: 70px;
    
   }
+  .graph-card {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.graph-controls {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.graph-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
