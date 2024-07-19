@@ -3,6 +3,9 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import GraphCard from '../../Components/GraphCard/GraphCard';
 import Navbar from '../../Components/Navbar/Navbar';
 import './WeightPage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 
 const WeightPage = () => {
   const [weightData, setWeightData] = useState([]);
@@ -87,10 +90,11 @@ const WeightPage = () => {
           />
           <div className="button-container">
             <button onClick={handlePrev} disabled={weightIndex === 0}>
-              Previous
+            <FontAwesomeIcon icon={faArrowLeft} /> Previous
+              
             </button>
             <button onClick={handleNext} disabled={weightIndex + CHUNK_SIZE >= weightData.length}>
-              Next
+            Next <FontAwesomeIcon icon={faArrowRight} /> 
             </button>
           </div>
         </div>

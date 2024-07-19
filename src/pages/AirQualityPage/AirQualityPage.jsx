@@ -3,6 +3,8 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import GraphCard from '../../Components/GraphCard/GraphCard';
 import Navbar from '../../Components/Navbar/Navbar';
 import './AirQualityPage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const CO2Page = () => {
   const [co2Data, setCo2Data] = useState([]);
@@ -85,12 +87,12 @@ const CO2Page = () => {
             onPrev={() => handlePrev(setCo2Index)}
             onNext={() => handleNext(setCo2Index, co2Data.length)}
           />
-          <div className="button-container">
+           <div className="button-container">
             <button onClick={() => handlePrev(setCo2Index)} disabled={co2Index === 0}>
-              Previous
+              <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
             <button onClick={() => handleNext(setCo2Index, co2Data.length)} disabled={co2Index + CHUNK_SIZE >= co2Data.length}>
-              Next
+              Next <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
         </div>
