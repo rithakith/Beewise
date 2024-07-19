@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import './Signup.css';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/beelogo.png';
 
 const Signup = () => {
   const navigate = useNavigate();

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { auth } from "../../firebase/config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTachometerAlt, faThermometerHalf, faTint, faWind, faWeight } from "@fortawesome/free-solid-svg-icons";
 import './Navbar.css';
 import logo from '../../assets/beelogo.png';
 
@@ -52,12 +54,22 @@ const Navbar = () => {
       </header>
 
       <nav className="navbar">
-        <a href="/dashboard">Dashboard</a>
-        <a href="/temperature">Temperature</a>
-        <a href="/humidity">Humidity </a>
-        <a href="/airquality">Air Quality Level</a>
-        <a href="/weight">Weight </a>
-        
+        <NavLink to="/dashboard" activeClassName="active">
+          <FontAwesomeIcon icon={faTachometerAlt} /> Dashboard
+        </NavLink>
+        <NavLink to="/temperature" activeClassName="active">
+          <FontAwesomeIcon icon={faThermometerHalf} /> Temperature
+        </NavLink>
+        <NavLink to="/humidity" activeClassName="active">
+          <FontAwesomeIcon icon={faTint} /> Humidity
+        </NavLink>
+        <NavLink to="/airquality" activeClassName="active">
+          <FontAwesomeIcon icon={faWind} /> Air Quality Level
+        </NavLink>
+        <NavLink to="/weight" activeClassName="active">
+          <FontAwesomeIcon icon={faWeight} /> Weight
+        </NavLink>
+
         {user ? (
           <>
             <span className="user-name-box">Hi, {name}</span>
