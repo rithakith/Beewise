@@ -1,24 +1,18 @@
-/* Reset some default browser styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: #ffffff;
-  }
-  
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
+.content-air {
+  padding: 30px;
+  margin-top: 10px;
+  margin-left: 260px;
+}
+
+.box-analysis-container-airgraph {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: left;
+  padding-top: 0px;
+}

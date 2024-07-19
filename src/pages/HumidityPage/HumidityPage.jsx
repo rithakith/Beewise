@@ -77,8 +77,8 @@ const HumidityPage = () => {
   return (
     <>
       <Navbar />
-      <div className="content">
-        <div className="box-analysis-container">
+      <div className="content-hum">
+        <div className="box-analysis-container-humgraph">
           <h2>Humidity (%)</h2>
           <GraphCard
             title=""

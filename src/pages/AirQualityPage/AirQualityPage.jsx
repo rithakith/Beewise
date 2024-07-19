@@ -73,8 +73,8 @@ const CO2Page = () => {
   return (
     <>
       <Navbar />
-      <div className="content">
-        <div className="box-analysis-container">
+      <div className="content-air">
+        <div className="box-analysis-container-airgraph">
           <h2>Air Quality Level (ppm)</h2>
           <GraphCard
             title=""

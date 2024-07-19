@@ -73,8 +73,8 @@ const WeightPage = () => {
   return (
     <>
       <Navbar />
-      <div className="content">
-        <div className="box-analysis-container">
+      <div className="content-wei">
+        <div className="box-analysis-container-weigraph">
           <h2>Weight (kg)</h2>
           <GraphCard
             title=""
