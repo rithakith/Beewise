@@ -1,11 +1,11 @@
 .graph-card {
-    width: 400px; 
+    width:100%;
     flex: 1 1 calc(40% - 20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     background: white;
     border-radius: 8px;
-    height: 320px;
+    height: 400px;
   }
  
   .graph-stats{
@@ -30,4 +30,56 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+}
+
+.content {
+  padding: 20px;
+}
+
+.box-analysis-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for buttons */
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Styling for button hover state */
+button:hover {
+  background-color: #45a049;
+}
+
+/* Disabled button styling */
+button:disabled {
+  background-color: #d3d3d3; /* Light grey */
+  color: #a9a9a9; /* Darker grey */
+  cursor: not-allowed;
+}
+
+/* Container for buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }

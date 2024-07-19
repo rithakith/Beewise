@@ -13,13 +13,11 @@
 .header {
   padding: 10px;
   background-color: #fff;
-  
 }
 
 .logo img {
   height: 60px;
   margin-left: 10px;
-  
 }
 
 .navbar {
@@ -61,4 +59,10 @@
   color: red;
   margin-top: 10px;
   text-align: center;
+}
+
+/* Active class styling */
+.navbar a.active {
+  background-color: #f0ad4e; /* Change this color to whatever you prefer for active state */
+  color: #fff;
 }

@@ -4,6 +4,7 @@ import InfoBox from '../InfoBox/InfoBox';
 import './Box.css';
 
 const Box = ({ box, index }) => {
+  console.log("this is box info", box);
   return (
     <div className="box">
      

@@ -54,19 +54,19 @@ const Navbar = () => {
       </header>
 
       <nav className="navbar">
-        <NavLink to="/dashboard" activeClassName="active">
+        <NavLink to="/dashboard" className={({ isActive }) => (isActive ? "active" : "")}>
           <FontAwesomeIcon icon={faTachometerAlt} /> Dashboard
         </NavLink>
-        <NavLink to="/temperature" activeClassName="active">
+        <NavLink to="/temperature" className={({ isActive }) => (isActive ? "active" : "")}>
           <FontAwesomeIcon icon={faThermometerHalf} /> Temperature
         </NavLink>
-        <NavLink to="/humidity" activeClassName="active">
+        <NavLink to="/humidity" className={({ isActive }) => (isActive ? "active" : "")}>
           <FontAwesomeIcon icon={faTint} /> Humidity
         </NavLink>
-        <NavLink to="/airquality" activeClassName="active">
+        <NavLink to="/airquality" className={({ isActive }) => (isActive ? "active" : "")}>
           <FontAwesomeIcon icon={faWind} /> Air Quality Level
         </NavLink>
-        <NavLink to="/weight" activeClassName="active">
+        <NavLink to="/weight" className={({ isActive }) => (isActive ? "active" : "")}>
           <FontAwesomeIcon icon={faWeight} /> Weight
         </NavLink>
 
