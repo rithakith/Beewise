@@ -68,7 +68,7 @@ const Signup = () => {
           {signUpFail && <div className="error">{signUpError}</div>}
         </form>
         <p>
-          Already have an account?{" "}
+          Already have an account ?{" "}
           <span>
             <u>
             <a href="/login">Login</a>

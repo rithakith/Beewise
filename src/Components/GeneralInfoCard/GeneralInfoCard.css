@@ -24,6 +24,7 @@
 }
 
 .general-info-card-02 {
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +32,6 @@
 }
 
 .toggle-button {
-  margin-top: 10px;
   padding: 15px 35px;
   border: none;
   font-weight: bold;
@@ -49,3 +49,4 @@
 .toggle-button.off {
   background-color: gray;
 }
+

@@ -19,10 +19,7 @@ const GraphCard = ({ title, data, dateRange, min, max, onPrev, onNext,height=300
         </LineChart>
       </ResponsiveContainer>
     
-      <div className="graph-stats">
-        <p>Max: {max}</p>
-        <p>Min: {min}</p>
-      </div>
+     
     </div>
   );
 };

@@ -54,25 +54,25 @@ const Navbar = () => {
       </header>
 
       <nav className="navbar">
-        <NavLink to="/dashboard" className={({ isActive }) => (isActive ? "active" : "")}>
-          <FontAwesomeIcon icon={faTachometerAlt} /> Dashboard
+        <NavLink to="/dashboard" activeClassName="active">
+          <FontAwesomeIcon icon={faTachometerAlt} className="fa-icon" /> Dashboard
         </NavLink>
-        <NavLink to="/temperature" className={({ isActive }) => (isActive ? "active" : "")}>
-          <FontAwesomeIcon icon={faThermometerHalf} /> Temperature
+        <NavLink to="/temperature" activeClassName="active">
+          <FontAwesomeIcon icon={faThermometerHalf} className="fa-icon" /> Temperature
         </NavLink>
-        <NavLink to="/humidity" className={({ isActive }) => (isActive ? "active" : "")}>
-          <FontAwesomeIcon icon={faTint} /> Humidity
+        <NavLink to="/humidity" activeClassName="active">
+          <FontAwesomeIcon icon={faTint} className="fa-icon" /> Humidity
         </NavLink>
-        <NavLink to="/airquality" className={({ isActive }) => (isActive ? "active" : "")}>
-          <FontAwesomeIcon icon={faWind} /> Air Quality Level
+        <NavLink to="/airquality" activeClassName="active">
+          <FontAwesomeIcon icon={faWind} className="fa-icon" /> Air Quality Level
         </NavLink>
-        <NavLink to="/weight" className={({ isActive }) => (isActive ? "active" : "")}>
-          <FontAwesomeIcon icon={faWeight} /> Weight
+        <NavLink to="/weight" activeClassName="active">
+          <FontAwesomeIcon icon={faWeight} className="fa-icon" /> Weight
         </NavLink>
 
         {user ? (
           <>
-            <span className="user-name-box">Hi, {name}</span>
+           
             <button onClick={handleSignout} className="sign-out-btn">SIGN OUT</button>
           </>
         ) : (

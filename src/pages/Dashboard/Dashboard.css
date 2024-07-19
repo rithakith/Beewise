@@ -66,6 +66,7 @@ body {
 
 .box-analysis-container h2 {
   padding-left: 10px;
+  text-align: left;
 }
 
 .error-message {

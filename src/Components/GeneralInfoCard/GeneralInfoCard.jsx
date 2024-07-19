@@ -66,7 +66,7 @@ const GeneralInfoCard = () => {
     <div className="general-info-container">
       <div className="general-info-card">
         <div className="general-info-card-01">
-          <h2>General Information</h2><br />
+          <h2>General Information</h2>
           <p>Age of Beehive: {ageOfBeehive !== null ? `${ageOfBeehive} months` : 'Loading...'}</p>
           <p>Start Date: {startDate ? startDate.toLocaleDateString() : 'Invalid Date'}</p>
         </div>

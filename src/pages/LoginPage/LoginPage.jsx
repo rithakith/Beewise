@@ -60,7 +60,7 @@ const LoginPage = () => {
         {loginFail && <div className="error">{loginError}</div>}
       </form>
       <p>
-        Don't have an account?{" "}
+        Don't have an account ?{" "}
        
         <span>
           <u>

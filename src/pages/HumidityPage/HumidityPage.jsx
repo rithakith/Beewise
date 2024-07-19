@@ -79,9 +79,9 @@ const HumidityPage = () => {
       <Navbar />
       <div className="content">
         <div className="box-analysis-container">
-          <h2>Humidity</h2>
+          <h2>Humidity (%)</h2>
           <GraphCard
-            title="Humidity (%)"
+            title=""
             data={getDataChunk(humidityData, humidityIndex)}
             dateRange={getDateRange(humidityData, humidityIndex)}
             min={minMaxValues.humidity.min}

@@ -75,9 +75,9 @@ const TemperaturePage = () => {
       <Navbar />
       <div className="content">
         <div className="box-analysis-container">
-          <h2>Temperature Page</h2>
+          <h2>Temperature (°C)</h2>
           <GraphCard
-            title="Temperature (°C)"
+            title=""
             data={getDataChunk(temperatureData, temperatureIndex)}
             dateRange={getDateRange(temperatureData, temperatureIndex)}
             min={minMaxValues.temperature.min}

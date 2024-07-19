@@ -144,8 +144,7 @@ const Dashboard = () => {
                 minTemperature: Math.min(
                   ...temperatureData.map((d) => d.value)
                 ),
-                maxHumidity: Math.max(...humidityData.map((d) => d.value)),
-                minHumidity: Math.min(...humidityData.map((d) => d.value)),
+                
                 startDate:
                   temperatureData.length > 0 ? temperatureData[0].name : null,
                 id: 1,
@@ -156,8 +155,7 @@ const Dashboard = () => {
                 title="Temperature (°C)"
                 data={getDataChunk(temperatureData, temperatureIndex)}
                 dateRange={getDateRange(temperatureData, temperatureIndex)}
-                min={minMaxValues.temperature.min}
-                max={minMaxValues.temperature.max}
+              
                 onPrev={() => handlePrev(setTemperatureIndex, temperatureIndex)}
                 onNext={() =>
                   handleNext(
@@ -171,8 +169,7 @@ const Dashboard = () => {
                 title="Humidity (%)"
                 data={getDataChunk(humidityData, humidityIndex)}
                 dateRange={getDateRange(humidityData, humidityIndex)}
-                min={minMaxValues.humidity.min}
-                max={minMaxValues.humidity.max}
+           
                 onPrev={() => handlePrev(setHumidityIndex, humidityIndex)}
                 onNext={() =>
                   handleNext(
@@ -186,8 +183,7 @@ const Dashboard = () => {
                 title="Air Quality level (ppm)"
                 data={getDataChunk(co2Data, co2Index)}
                 dateRange={getDateRange(co2Data, co2Index)}
-                min={minMaxValues.co2Level.min}
-                max={minMaxValues.co2Level.max}
+               
                 onPrev={() => handlePrev(setCo2Index, co2Index)}
                 onNext={() => handleNext(setCo2Index, co2Index, co2Data.length)}
               />
@@ -195,8 +191,7 @@ const Dashboard = () => {
                 title="Weight (kg)"
                 data={getDataChunk(co2Data, co2Index)}
                 dateRange={getDateRange(co2Data, co2Index)}
-                min={minMaxValues.co2Level.min}
-                max={minMaxValues.co2Level.max}
+       
                 onPrev={() => handlePrev(setCo2Index, co2Index)}
                 onNext={() => handleNext(setCo2Index, co2Index, co2Data.length)}
               />

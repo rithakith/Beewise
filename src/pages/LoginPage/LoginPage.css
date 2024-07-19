@@ -70,7 +70,7 @@ body {
 }
 
 .success {
-  color:rgb(0, 0, 0);
+  color:rgb(78, 78, 78);
   margin-top: 10px;
 }
 
@@ -92,5 +92,5 @@ body {
   text-decoration: underline;
 }
 .login-box u{
-  color: #f0f0f0;
+  color: #ffd374;
 }

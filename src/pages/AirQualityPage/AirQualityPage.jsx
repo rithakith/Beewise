@@ -75,9 +75,9 @@ const CO2Page = () => {
       <Navbar />
       <div className="content">
         <div className="box-analysis-container">
-          <h2>Air Quality Level</h2>
+          <h2>Air Quality Level (ppm)</h2>
           <GraphCard
-            title="CO₂ Level (ppm)"
+            title=""
             data={getDataChunk(co2Data, co2Index)}
             dateRange={getDateRange(co2Data, co2Index)}
             min={minMaxValues.co2Level.min}

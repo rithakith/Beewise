@@ -75,9 +75,9 @@ const WeightPage = () => {
       <Navbar />
       <div className="content">
         <div className="box-analysis-container">
-          <h2>Weight Page</h2>
+          <h2>Weight (kg)</h2>
           <GraphCard
-            title="Weight (kg)"
+            title=""
             data={getDataChunk(weightData, weightIndex)}
             dateRange={getDateRange(weightData, weightIndex)}
             min={minMaxValues.weight.min}

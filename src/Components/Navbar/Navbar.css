@@ -1,68 +1,88 @@
+/* Sidebar Styles */
 .sidebar {
   display: flex;
   flex-direction: column;
+  width: 200px;
+  background-color: #ffffff;
   height: 100vh;
-  width: 250px;
-  background-color: #fff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
 .header {
-  padding: 10px;
-  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .logo img {
-  height: 60px;
-  margin-left: 10px;
+  max-width: 100%;
+  height: auto;
 }
 
 .navbar {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  gap: 20px;
+  padding: 10px;
+  width: 210px;
+  text-align: center;
 }
 
-.navbar a,
-.navbar .sign-out-btn,
-.navbar .login-btn {
+.navbar a {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  color: #333333;
   text-decoration: none;
-  color: #000;
+  font-size: 15px;
+  border-left: 3px solid transparent;
+  transition: background-color 0.3s, border-left-color 0.3s;
+}
+
+.navbar a.active {
+  background-color: #f0f0f0;
+  border-left-color: #FFB400; /* Primary color */
   font-weight: bold;
-  cursor: pointer;
-  border: none;
-  background-color: #000;
-  color: #fff;
-  padding: 10px 15px;
-  text-align: center;
 }
 
-.navbar .user-name-box {
-  border: none;
-  background-color: hwb(36 72% 7%);
-  color: #000;
-  margin-top: 150px;
-  padding: 10px 20px;
-  text-align: center;
+.navbar a:hover {
+  background-color: #f0f0f0;
+  border-left-color: #FFB400;
 }
 
-.navbar .sign-out-btn {
-  background-color: #000000;
+.navbar a .fa-icon {
+  margin-right: 10px; /* Adjust the spacing as needed */
+}
+
+.user-name-box {
+  display: block;
+  padding: 10px;
+  font-size: 14px;
+  color: #777777;
   margin-top: auto;
 }
 
-.error-message {
-  color: red;
-  margin-top: 10px;
+.sign-out-btn,
+.login-btn {
+  display: block;
+  height: 40px;
+  background-color: #000000; /* Primary color */
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
   text-align: center;
+  transition: background-color 0.3s;
+  margin-top: 250px;
 }
 
-/* Active class styling */
-.navbar a.active {
-  background-color: #f0ad4e; /* Change this color to whatever you prefer for active state */
-  color: #fff;
+.sign-out-btn:hover,
+.login-btn:hover {
+  background-color: #e6a600;
+}
+
+.error-message {
+  padding: 10px;
+  color: #ff0000;
 }
