@@ -11,7 +11,7 @@ const Box = ({ box, index }) => {
       <div className="info-boxes-container">
         <InfoBox title="Temperature" value={box.temperature} unit="°C" />
         <InfoBox title="Humidity" value={box.humidity} unit="%" />
-        <InfoBox title="CO₂ Level" value={box.co2Level} unit="ppm" />
+        <InfoBox title="Air Quality level (ppm)" value={box.co2Level} unit="ppm" />
       </div>
     
     </div>
