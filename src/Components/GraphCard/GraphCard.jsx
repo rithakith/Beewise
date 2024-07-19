@@ -5,6 +5,7 @@ import "./GraphCard.css";
 const GraphCard = ({ title, data, dateRange, min, max, onPrev, onNext,height=300 }) => {
   return (
     <div className="graph-card">
+      <h3>{title}</h3>
      <br />
       <p style={{textAlign:"center"}}>{dateRange}</p>
       <ResponsiveContainer width="100%" height={height}>
