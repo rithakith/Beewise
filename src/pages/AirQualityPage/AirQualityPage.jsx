@@ -89,10 +89,10 @@ const AirQualityPage = () => {
           />
 
           <div className="button-container">
-            <button onClick={() => handlePrev(setAirQualityIndex)} disabled={airQualityIndex === 0}>
+            <button className='graph-button' onClick={() => handlePrev(setAirQualityIndex)} disabled={airQualityIndex === 0}>
             <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
-            <button onClick={() => handleNext(setAirQualityIndex, airQualityData.length)} disabled={airQualityIndex + CHUNK_SIZE >= airQualityData.length}>
+            <button className='graph-button' onClick={() => handleNext(setAirQualityIndex, airQualityData.length)} disabled={airQualityIndex + CHUNK_SIZE >= airQualityData.length}>
             Next <FontAwesomeIcon icon={faArrowRight} />
 
 

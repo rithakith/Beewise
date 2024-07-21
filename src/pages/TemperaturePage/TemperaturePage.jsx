@@ -88,10 +88,10 @@ const TemperaturePage = () => {
             onNext={() => handleNext(setTemperatureIndex, temperatureData.length)}
           />
           <div className="button-container">
-            <button onClick={() => handlePrev(setTemperatureIndex)} disabled={temperatureIndex === 0}>
+            <button className='graph-button' onClick={() => handlePrev(setTemperatureIndex)} disabled={temperatureIndex === 0}>
             <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
-            <button onClick={() => handleNext(setTemperatureIndex, temperatureData.length)} disabled={temperatureIndex + CHUNK_SIZE >= temperatureData.length}>
+            <button className='graph-button' onClick={() => handleNext(setTemperatureIndex, temperatureData.length)} disabled={temperatureIndex + CHUNK_SIZE >= temperatureData.length}>
             Next <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>

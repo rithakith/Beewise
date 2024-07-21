@@ -90,10 +90,10 @@ const WeightPage = () => {
           />
           <div className="button-container">
 
-            <button onClick={() => handlePrev(setWeightIndex)} disabled={weightIndex === 0}>
+            <button className='graph-button' onClick={() => handlePrev(setWeightIndex)} disabled={weightIndex === 0}>
             <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
-            <button onClick={() => handleNext(setWeightIndex, weightData.length)} disabled={weightIndex + CHUNK_SIZE >= weightData.length}>
+            <button className='graph-button' onClick={() => handleNext(setWeightIndex, weightData.length)} disabled={weightIndex + CHUNK_SIZE >= weightData.length}>
             Next <FontAwesomeIcon icon={faArrowRight} /> 
 </button></div>
         </div>

@@ -50,7 +50,7 @@ h2 {
 }
 
 /* Styling for buttons */
-button {
+.graph-button {
   background-color: #fffa68; /* Green */
   border: none;
   color: rgb(0, 0, 0);
