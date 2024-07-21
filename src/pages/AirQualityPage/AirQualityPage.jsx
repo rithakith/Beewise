@@ -77,7 +77,7 @@ const CO2Page = () => {
       <Navbar />
       <div className="content-air">
         <div className="box-analysis-container-airgraph">
-          <h2>Air Quality Level (ppm)</h2>
+          <h2>CO<sub>2</sub> Level (ppm)</h2>
           <GraphCard
             title=""
             data={getDataChunk(co2Data, co2Index)}

@@ -38,11 +38,13 @@
 }
 
 .toggle-button {
-  padding: 15px 35px;
+  padding: 10px 20px; /* Adjust padding for desired button size */
+  min-width: 100px; /* Ensure button has a minimum width */
+  min-height: 40px; /* Ensure button has a minimum height */
   border: none;
   font-weight: bold;
   font-size: 17px;
-  border-radius: 30px;
+  border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s;
   color: rgb(0, 0, 0); /* Text color for better visibility */

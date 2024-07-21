@@ -55,19 +55,19 @@ const Navbar = () => {
 
       <nav className="navbar">
         <NavLink to="/dashboard" activeClassName="active">
-          <FontAwesomeIcon icon={faTachometerAlt} className="fa-icon" /> Dashboard
+          <FontAwesomeIcon icon={faTachometerAlt} className="fa-icon" /> <p>Dashboard</p>
         </NavLink>
         <NavLink to="/temperature" activeClassName="active">
-          <FontAwesomeIcon icon={faThermometerHalf} className="fa-icon" /> Temperature
+          <FontAwesomeIcon icon={faThermometerHalf} className="fa-icon" />  <p>Temperature</p>
         </NavLink>
         <NavLink to="/humidity" activeClassName="active">
-          <FontAwesomeIcon icon={faTint} className="fa-icon" /> Humidity
+          <FontAwesomeIcon icon={faTint} className="fa-icon" />  <p>Humidity</p>
         </NavLink>
         <NavLink to="/airquality" activeClassName="active">
-          <FontAwesomeIcon icon={faWind} className="fa-icon" /> Air Quality Level
+          <FontAwesomeIcon icon={faWind} className="fa-icon" /> <p> CO<sub className="sub">2</sub> Level</p>
         </NavLink>
         <NavLink to="/weight" activeClassName="active">
-          <FontAwesomeIcon icon={faWeight} className="fa-icon" /> Weight
+          <FontAwesomeIcon icon={faWeight} className="fa-icon" />  <p>Weight</p>
         </NavLink>
 
         {user ? (
