@@ -27,7 +27,7 @@ const WeightPage = () => {
             const entryDate = new Date(entry.time);
             const timestamp = `${entryDate.toLocaleDateString()} ${entryDate.toLocaleTimeString()}`;
 
-            if (entry.weight !== undefined) {
+            if (entry.weight !== undefined) { // Correct key for weight data
               weightData.push({ name: timestamp, value: entry.weight });
             }
           });
@@ -51,12 +51,12 @@ const WeightPage = () => {
     return () => unsubscribe();
   }, []);
 
-  const handlePrev = () => {
-    setWeightIndex((prevIndex) => (prevIndex - CHUNK_SIZE < 0 ? 0 : prevIndex - CHUNK_SIZE));
+  const handlePrev = (indexSetter) => {
+    indexSetter((prevIndex) => (prevIndex - CHUNK_SIZE < 0 ? 0 : prevIndex - CHUNK_SIZE));
   };
 
-  const handleNext = () => {
-    setWeightIndex((prevIndex) => (prevIndex + CHUNK_SIZE >= weightData.length ? prevIndex : prevIndex + CHUNK_SIZE));
+  const handleNext = (indexSetter, dataLength) => {
+    indexSetter((prevIndex) => (prevIndex + CHUNK_SIZE >= dataLength ? prevIndex : prevIndex + CHUNK_SIZE));
   };
 
   const getDataChunk = (data, index) => {
@@ -73,23 +73,23 @@ const WeightPage = () => {
   return (
     <>
       <Navbar />
-      <div className="content-wei">
-        <div className="box-analysis-container-weigraph">
-          <h2>Weight (kg)</h2>
+      <div className="content-air">
+        <div className="box-analysis-container-airgraph">
+          <h2>Weight Data (g)</h2>
           <GraphCard
             title=""
             data={getDataChunk(weightData, weightIndex)}
             dateRange={getDateRange(weightData, weightIndex)}
             min={minMaxValues.weight.min}
             max={minMaxValues.weight.max}
-            onPrev={handlePrev}
-            onNext={handleNext}
+            onPrev={() => handlePrev(setWeightIndex)}
+            onNext={() => handleNext(setWeightIndex, weightData.length)}
           />
           <div className="button-container">
-            <button onClick={handlePrev} disabled={weightIndex === 0}>
+            <button onClick={() => handlePrev(setWeightIndex)} disabled={weightIndex === 0}>
               Previous
             </button>
-            <button onClick={handleNext} disabled={weightIndex + CHUNK_SIZE >= weightData.length}>
+            <button onClick={() => handleNext(setWeightIndex, weightData.length)} disabled={weightIndex + CHUNK_SIZE >= weightData.length}>
               Next
             </button>
           </div>

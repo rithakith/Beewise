@@ -4,12 +4,12 @@ import GraphCard from '../../Components/GraphCard/GraphCard';
 import Navbar from '../../Components/Navbar/Navbar';
 import './AirQualityPage.css';
 
-const CO2Page = () => {
-  const [co2Data, setCo2Data] = useState([]);
+const AirQualityPage = () => {
+  const [airQualityData, setAirQualityData] = useState([]);
   const [minMaxValues, setMinMaxValues] = useState({
-    co2Level: { min: null, max: null },
+    airQuality: { min: null, max: null },
   });
-  const [co2Index, setCo2Index] = useState(0);
+  const [airQualityIndex, setAirQualityIndex] = useState(0);
   const CHUNK_SIZE = 50;
 
   useEffect(() => {
@@ -20,23 +20,23 @@ const CO2Page = () => {
       (snapshot) => {
         if (snapshot.exists()) {
           const data = snapshot.val();
-          const co2Data = [];
+          const airQualityData = [];
 
           Object.keys(data).forEach((key) => {
             const entry = data[key];
             const entryDate = new Date(entry.time);
             const timestamp = `${entryDate.toLocaleDateString()} ${entryDate.toLocaleTimeString()}`;
 
-            if (entry.co2Level !== undefined) {
-              co2Data.push({ name: timestamp, value: entry.co2Level });
+            if (entry.airQuality !== undefined) {
+              airQualityData.push({ name: timestamp, value: entry.airQuality });
             }
           });
 
-          setCo2Data(co2Data);
+          setAirQualityData(airQualityData);
           setMinMaxValues({
-            co2Level: {
-              min: Math.min(...co2Data.map((d) => d.value)),
-              max: Math.max(...co2Data.map((d) => d.value)),
+            airQuality: {
+              min: Math.min(...airQualityData.map((d) => d.value)),
+              max: Math.max(...airQualityData.map((d) => d.value)),
             },
           });
         } else {
@@ -78,18 +78,18 @@ const CO2Page = () => {
           <h2>Air Quality Level (ppm)</h2>
           <GraphCard
             title=""
-            data={getDataChunk(co2Data, co2Index)}
-            dateRange={getDateRange(co2Data, co2Index)}
-            min={minMaxValues.co2Level.min}
-            max={minMaxValues.co2Level.max}
-            onPrev={() => handlePrev(setCo2Index)}
-            onNext={() => handleNext(setCo2Index, co2Data.length)}
+            data={getDataChunk(airQualityData, airQualityIndex)}
+            dateRange={getDateRange(airQualityData, airQualityIndex)}
+            min={minMaxValues.airQuality.min}
+            max={minMaxValues.airQuality.max}
+            onPrev={() => handlePrev(setAirQualityIndex)}
+            onNext={() => handleNext(setAirQualityIndex, airQualityData.length)}
           />
           <div className="button-container">
-            <button onClick={() => handlePrev(setCo2Index)} disabled={co2Index === 0}>
+            <button onClick={() => handlePrev(setAirQualityIndex)} disabled={airQualityIndex === 0}>
               Previous
             </button>
-            <button onClick={() => handleNext(setCo2Index, co2Data.length)} disabled={co2Index + CHUNK_SIZE >= co2Data.length}>
+            <button onClick={() => handleNext(setAirQualityIndex, airQualityData.length)} disabled={airQualityIndex + CHUNK_SIZE >= airQualityData.length}>
               Next
             </button>
           </div>
@@ -99,4 +99,4 @@ const CO2Page = () => {
   );
 };
 
-export default CO2Page;
+export default AirQualityPage;
