@@ -85,7 +85,7 @@ const co2Page = () => {
       <Navbar />
       <div className="content-air">
         <div className="box-analysis-container-airgraph">
-          <h2>
+          <h2 className='tempt'>
             CO<sub>2</sub> Level (ppm)
           </h2>
           <GraphCard

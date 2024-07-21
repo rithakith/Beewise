@@ -79,7 +79,7 @@ const TemperaturePage = () => {
       <Navbar />
       <div className="content-temp">
         <div className="box-analysis-container-tempgraph">
-          <h2>Temperature (°C)</h2>
+          <h2 className='tempt'>Temperature (°C)</h2>
           <GraphCard
             title=""
             data={getDataChunk(temperatureData, temperatureIndex)}

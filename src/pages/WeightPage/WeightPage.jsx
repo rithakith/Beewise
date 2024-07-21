@@ -80,7 +80,7 @@ const WeightPage = () => {
       <Navbar />
       <div className="content-air">
         <div className="box-analysis-container-airgraph">
-          <h2>Weight (g)</h2>
+          <h2 className='tempt'>Weight (g)</h2>
           <GraphCard
             title=""
             data={getDataChunk(weightData, weightIndex)}

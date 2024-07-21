@@ -86,7 +86,7 @@ const HumidityPage = () => {
       <Navbar />
       <div className="content-hum">
         <div className="box-analysis-container-humgraph">
-          <h2>Humidity (%)</h2>
+          <h2 className='tempt'>Humidity (%)</h2>
           <GraphCard
             title=""
             data={getDataChunk(humidityData, humidityIndex)}
