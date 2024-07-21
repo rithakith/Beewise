@@ -5,9 +5,8 @@ const InfoBox = ({ title, value, unit, min, max }) => {
   return (
     <div className="info-box">
       <h3>{title}</h3>
-      <p>Current: {value} {unit}</p>
-      <p>Min: {min} {unit}</p>
-      <p>Max: {max} {unit}</p>
+      <p>{value} {unit}</p>
+     
     </div>
   );
 };

@@ -1,23 +1,40 @@
 .graph-card {
-    width:100%;
-    flex: 1 1 calc(40% - 20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    height: 400px;
-  }
- 
-  .graph-stats{
-    padding-left: 70px;
-   
-  }
-  .graph-card {
-  background-color: #fff;
+  width: 100%;
+  flex: 1 1 calc(40% - 20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin-right: 10px;
-  border-radius: 10px;
-  
+  background: white;
+  border-radius: 8px;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.min-max-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.min-card, .max-card {
+  background: #f0f0f0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.min-card p, .max-card p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.min-card h4, .max-card h4 {
+  margin: 5px 0 0 0;
+  color: #333;
+}
+
+.graph-stats {
+  padding-left: 70px;
 }
 
 .graph-controls {
@@ -39,14 +56,13 @@
 .box-analysis-container {
   background: #fff;
   border-radius: 8px;
-  
   padding: 20px;
   margin-bottom: 20px;
 }
 
 h2 {
-  text-align: center;
-  margin-bottom: 20px;
+  text-align: left;
+  padding-top: 0px;
 }
 
 /* Styling for buttons */
@@ -68,7 +84,6 @@ h2 {
   width: 190px; /* Ensure all buttons have the same width */
   height: 40px; /* Ensure all buttons have the same height */
 }
-
 
 /* Styling for button hover state */
 button:hover {

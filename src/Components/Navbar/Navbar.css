@@ -67,7 +67,9 @@
 .sign-out-btn,
 .login-btn {
   display: block;
-  height: 40px;
+  border-radius: 30px;
+  height: 45px;
+  width: 185px;
   background-color: #000000; /* Primary color */
   color: #ffffff;
   border: none;
