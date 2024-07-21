@@ -99,13 +99,13 @@ const co2Page = () => {
           />
 
           <div className="button-container">
-            <button
+            <button className="button-graph"
               onClick={() => handlePrev(setco2Index)}
               disabled={co2Index === 0}
             >
               <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
-            <button
+            <button className="button-graph"
               onClick={() => handleNext(setco2Index, co2Data.length)}
               disabled={co2Index + CHUNK_SIZE >= co2Data.length}
             >

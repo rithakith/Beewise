@@ -97,13 +97,13 @@ const HumidityPage = () => {
             onNext={() => handleNext(setHumidityIndex, humidityData.length)}
           />
           <div className="button-container">
-            <button
+            <button className="button-graph"
               onClick={() => handlePrev(setHumidityIndex)}
               disabled={humidityIndex === 0}
             >
               <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
-            <button
+            <button className="button-graph"
               onClick={() => handleNext(setHumidityIndex, humidityData.length)}
               disabled={humidityIndex + CHUNK_SIZE >= humidityData.length}
             >
