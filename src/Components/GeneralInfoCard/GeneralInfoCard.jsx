@@ -3,7 +3,7 @@ import { getDatabase, ref, set } from "firebase/database";
 import "./GeneralInfoCard.css";
 
 const GeneralInfoCard = () => {
-  const [syrupMode, setSyrupMode] = useState(false);
+  const [syrup, setSyrup] = useState(2);
   const [startDate, setStartDate] = useState(null);
   const [ageOfBeehive, setAgeOfBeehive] = useState(null);
 
@@ -22,31 +22,17 @@ const GeneralInfoCard = () => {
     };
 
     getStartDate();
-
-    let timer;
-    if (syrupMode) {
-      // Set a timer to turn off the syrupMode after 5 seconds
-      timer = setTimeout(() => {
-        setSyrupMode(false);
-        updateSyrupModeInDatabase(false); // Update database when syrupMode is turned off
-      }, 5000);
-    }
-
-    // Cleanup the timer if the component unmounts or syrupMode changes
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [syrupMode]);
+  }, []);
 
   const handleToggle = () => {
-    const newSyrupMode = !syrupMode;
-    setSyrupMode(newSyrupMode);
-    updateSyrupModeInDatabase(newSyrupMode); // Update database when button is toggled
+    const newSyrup = syrup === 2 ? 1 : 2;
+    setSyrup(newSyrup);
+    updateSyrupInDatabase(newSyrup); // Update database when button is toggled
   };
 
-  const updateSyrupModeInDatabase = (mode) => {
+  const updateSyrupInDatabase = (mode) => {
     const db = getDatabase();
-    set(ref(db, 'syrupMode'), mode)
+    set(ref(db, 'syrup'), mode)
       .then(() => {
         console.log("Syrup mode updated successfully in the database.");
       })
@@ -74,9 +60,9 @@ const GeneralInfoCard = () => {
           <h2>Sugar Syrup Activation Mode:</h2>
           <button
             onClick={handleToggle}
-            className={`toggle-button ${syrupMode ? 'on' : 'off'}`}
+            className={`toggle-button ${syrup === 1 ? 'on' : 'off'}`}
           >
-            {syrupMode ? "ON" : "OFF"}
+            {syrup === 1 ? 'On' : 'Off'}
           </button>
         </div>
       </div>

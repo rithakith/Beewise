@@ -12,22 +12,26 @@ const Dashboard = () => {
   const [temperatureData, setTemperatureData] = useState([]);
   const [humidityData, setHumidityData] = useState([]);
   const [co2Data, setCo2Data] = useState([]);
+  const [weightData, setWeightData] = useState([]); // New state for weight data
 
   const [latestData, setLatestData] = useState({
     temperature: null,
     humidity: null,
     co2Level: null,
+    weight: null, // Latest weight data
   });
 
   const [minMaxValues, setMinMaxValues] = useState({
     temperature: { min: null, max: null },
     humidity: { min: null, max: null },
     co2Level: { min: null, max: null },
+    weight: { min: null, max: null }, // Min and max values for weight data
   });
 
   const [temperatureIndex, setTemperatureIndex] = useState(0);
   const [humidityIndex, setHumidityIndex] = useState(0);
   const [co2Index, setCo2Index] = useState(0);
+  const [weightIndex, setWeightIndex] = useState(0); // New index state for weight data
 
   const CHUNK_SIZE = 50;
 
@@ -42,10 +46,12 @@ const Dashboard = () => {
           const tempData = [];
           const humData = [];
           const co2Data = [];
+          const weightData = []; // Array to hold weight data
 
           let latestTemp = null;
           let latestHum = null;
           let latestCo2 = null;
+          let latestWeight = null; // Variable to hold latest weight data
 
           Object.keys(data).forEach((key) => {
             const entry = data[key];
@@ -60,19 +66,25 @@ const Dashboard = () => {
               humData.push({ name: timestamp, value: entry.humidity });
               latestHum = entry.humidity;
             }
-            if (entry.co2Level !== undefined) {
-              co2Data.push({ name: timestamp, value: entry.co2Level });
-              latestCo2 = entry.co2Level;
+            if (entry.CO2lvl !== undefined) {
+              co2Data.push({ name: timestamp, value: entry.CO2lvl });
+              latestCo2 = entry.CO2lvl;
+            }
+            if (entry.weight !== undefined) { // Check for weight data
+              weightData.push({ name: timestamp, value: entry.weight });
+              latestWeight = entry.weight;
             }
           });
 
           setTemperatureData(tempData);
           setHumidityData(humData);
           setCo2Data(co2Data);
+          setWeightData(weightData); // Update state with weight data
           setLatestData({
             temperature: latestTemp,
             humidity: latestHum,
             co2Level: latestCo2,
+            weight: latestWeight, // Update latest weight data
           });
 
           setMinMaxValues({
@@ -87,6 +99,10 @@ const Dashboard = () => {
             co2Level: {
               min: Math.min(...co2Data.map((d) => d.value)),
               max: Math.max(...co2Data.map((d) => d.value)),
+            },
+            weight: { // Update min and max values for weight data
+              min: Math.min(...weightData.map((d) => d.value)),
+              max: Math.max(...weightData.map((d) => d.value)),
             },
           });
         } else {
@@ -138,13 +154,13 @@ const Dashboard = () => {
                 humidity: latestData.humidity,
                 temperature: latestData.temperature,
                 co2Level: latestData.co2Level,
+                weight: latestData.weight, // Pass latest weight data
                 maxTemperature: Math.max(
                   ...temperatureData.map((d) => d.value)
                 ),
                 minTemperature: Math.min(
                   ...temperatureData.map((d) => d.value)
                 ),
-                
                 startDate:
                   temperatureData.length > 0 ? temperatureData[0].name : null,
                 id: 1,
@@ -155,7 +171,9 @@ const Dashboard = () => {
                 title="Temperature (°C)"
                 data={getDataChunk(temperatureData, temperatureIndex)}
                 dateRange={getDateRange(temperatureData, temperatureIndex)}
-              
+                latestReading={latestData.temperature} // Pass latest reading
+                min={minMaxValues.temperature.min}
+                max={minMaxValues.temperature.max}
                 onPrev={() => handlePrev(setTemperatureIndex, temperatureIndex)}
                 onNext={() =>
                   handleNext(
@@ -169,7 +187,9 @@ const Dashboard = () => {
                 title="Humidity (%)"
                 data={getDataChunk(humidityData, humidityIndex)}
                 dateRange={getDateRange(humidityData, humidityIndex)}
-           
+                latestReading={latestData.humidity} // Pass latest reading
+                min={minMaxValues.humidity.min}
+                max={minMaxValues.humidity.max}
                 onPrev={() => handlePrev(setHumidityIndex, humidityIndex)}
                 onNext={() =>
                   handleNext(
@@ -183,17 +203,21 @@ const Dashboard = () => {
                 title="CO₂ Level (ppm)"
                 data={getDataChunk(co2Data, co2Index)}
                 dateRange={getDateRange(co2Data, co2Index)}
-               
+                latestReading={latestData.co2Level} // Pass latest reading
+                min={minMaxValues.co2Level.min}
+                max={minMaxValues.co2Level.max}
                 onPrev={() => handlePrev(setCo2Index, co2Index)}
                 onNext={() => handleNext(setCo2Index, co2Index, co2Data.length)}
               />
               <GraphCard
-                title="Weight (kg)"
-                data={getDataChunk(co2Data, co2Index)}
-                dateRange={getDateRange(co2Data, co2Index)}
-       
-                onPrev={() => handlePrev(setCo2Index, co2Index)}
-                onNext={() => handleNext(setCo2Index, co2Index, co2Data.length)}
+                title="Weight (g)" // Title updated for weight data
+                data={getDataChunk(weightData, weightIndex)}
+                dateRange={getDateRange(weightData, weightIndex)}
+                latestReading={latestData.weight} // Pass latest reading
+                min={minMaxValues.weight.min}
+                max={minMaxValues.weight.max}
+                onPrev={() => handlePrev(setWeightIndex, weightIndex)}
+                onNext={() => handleNext(setWeightIndex, weightIndex, weightData.length)}
               />
             </div>
             <GeneralInfoCard
