@@ -3,6 +3,8 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import GraphCard from '../../Components/GraphCard/GraphCard';
 import Navbar from '../../Components/Navbar/Navbar';
 import './AirQualityPage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const AirQualityPage = () => {
   const [airQualityData, setAirQualityData] = useState([]);
@@ -75,7 +77,7 @@ const AirQualityPage = () => {
       <Navbar />
       <div className="content-air">
         <div className="box-analysis-container-airgraph">
-          <h2>Air Quality Level (ppm)</h2>
+          <h2>CO<sub>2</sub> Level (ppm)</h2>
           <GraphCard
             title=""
             data={getDataChunk(airQualityData, airQualityIndex)}
@@ -85,12 +87,15 @@ const AirQualityPage = () => {
             onPrev={() => handlePrev(setAirQualityIndex)}
             onNext={() => handleNext(setAirQualityIndex, airQualityData.length)}
           />
+
           <div className="button-container">
             <button onClick={() => handlePrev(setAirQualityIndex)} disabled={airQualityIndex === 0}>
-              Previous
+            <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
             <button onClick={() => handleNext(setAirQualityIndex, airQualityData.length)} disabled={airQualityIndex + CHUNK_SIZE >= airQualityData.length}>
-              Next
+            Next <FontAwesomeIcon icon={faArrowRight} />
+
+
             </button>
           </div>
         </div>

@@ -3,6 +3,8 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import GraphCard from '../../Components/GraphCard/GraphCard';
 import Navbar from '../../Components/Navbar/Navbar';
 import './TemperaturePage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const TemperaturePage = () => {
   const [temperatureData, setTemperatureData] = useState([]);
@@ -87,10 +89,10 @@ const TemperaturePage = () => {
           />
           <div className="button-container">
             <button onClick={() => handlePrev(setTemperatureIndex)} disabled={temperatureIndex === 0}>
-              Previous
+            <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
             <button onClick={() => handleNext(setTemperatureIndex, temperatureData.length)} disabled={temperatureIndex + CHUNK_SIZE >= temperatureData.length}>
-              Next
+            Next <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
         </div>

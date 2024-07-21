@@ -3,6 +3,8 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import GraphCard from '../../Components/GraphCard/GraphCard';
 import Navbar from '../../Components/Navbar/Navbar'; 
 import './HumidityPage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const CHUNK_SIZE = 100;
 
@@ -91,10 +93,10 @@ const HumidityPage = () => {
           />
           <div className="button-container">
             <button onClick={() => handlePrev(setHumidityIndex)} disabled={humidityIndex === 0}>
-              Previous
+            <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
             <button onClick={() => handleNext(setHumidityIndex, humidityData.length)} disabled={humidityIndex + CHUNK_SIZE >= humidityData.length}>
-              Next
+               Next <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
         </div>

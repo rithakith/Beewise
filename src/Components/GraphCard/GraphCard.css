@@ -17,7 +17,7 @@
   padding: 20px;
   margin-right: 10px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
 }
 
 .graph-controls {
@@ -39,7 +39,7 @@
 .box-analysis-container {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -51,23 +51,28 @@ h2 {
 
 /* Styling for buttons */
 button {
-  background-color: #4CAF50; /* Green */
+  background-color: #fffa68; /* Green */
   border: none;
-  color: white;
-  padding: 10px 20px;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px; /* Adjusted padding */
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  gap: 10px; /* Add space between icon and text */
   font-size: 16px;
-  margin: 10px 2px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 190px; /* Ensure all buttons have the same width */
+  height: 40px; /* Ensure all buttons have the same height */
 }
+
 
 /* Styling for button hover state */
 button:hover {
-  background-color: #45a049;
+  background-color: #fcff60;
 }
 
 /* Disabled button styling */
@@ -81,5 +86,6 @@ button:disabled {
 .button-container {
   display: flex;
   justify-content: center;
+  gap: 800px; /* Add gap between buttons */
   margin-top: 20px;
 }

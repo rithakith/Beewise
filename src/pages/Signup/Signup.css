@@ -38,6 +38,7 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 20px;
     color: #333;
+    text-align: center;
   }
   
   .signup-box form {
