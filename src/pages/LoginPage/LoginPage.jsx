@@ -64,7 +64,7 @@ const LoginPage = () => {
        
         <span>
           <u>
-            <a href="/signup">Signup</a>
+            <a href="/signup">Sign Up</a>
           </u>
         </span>
         

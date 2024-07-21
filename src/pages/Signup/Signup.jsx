@@ -42,7 +42,7 @@ const Signup = () => {
     <div className="signup-container">
       <div className="signup-box">
         <img src={logo} alt="Logo" className="logo" />
-        <h2>Signup</h2>
+        <h2>Sign Up</h2>
         <form onSubmit={handleSignup}>
           <input
             type="text"

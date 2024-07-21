@@ -180,7 +180,7 @@ const Dashboard = () => {
                 }
               />
               <GraphCard
-                title="Air Quality level (ppm)"
+                title="CO₂ Level (ppm)"
                 data={getDataChunk(co2Data, co2Index)}
                 dateRange={getDateRange(co2Data, co2Index)}
                
