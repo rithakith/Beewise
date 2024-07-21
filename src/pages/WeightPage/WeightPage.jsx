@@ -42,6 +42,8 @@ const WeightPage = () => {
               max: Math.max(...weightData.map((d) => d.value)),
             },
           });
+          setWeightIndex(Math.max(0, weightData.length - CHUNK_SIZE));
+
         } else {
           console.log('No data available');
         }

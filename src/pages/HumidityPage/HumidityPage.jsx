@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { getDatabase, ref, onValue } from 'firebase/database';
-import GraphCard from '../../Components/GraphCard/GraphCard';
-import Navbar from '../../Components/Navbar/Navbar'; 
-import './HumidityPage.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import GraphCard from "../../Components/GraphCard/GraphCard";
+import Navbar from "../../Components/Navbar/Navbar";
+import "./HumidityPage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const CHUNK_SIZE = 100;
 
@@ -36,6 +36,7 @@ const HumidityPage = () => {
           });
 
           setHumidityData(humData);
+          setHumidityIndex(Math.max(0, humData.length - CHUNK_SIZE));
 
           setMinMaxValues({
             humidity: {
@@ -56,11 +57,15 @@ const HumidityPage = () => {
   }, []);
 
   const handlePrev = (indexSetter) => {
-    indexSetter((prevIndex) => (prevIndex - CHUNK_SIZE < 0 ? 0 : prevIndex - CHUNK_SIZE));
+    indexSetter((prevIndex) =>
+      prevIndex - CHUNK_SIZE < 0 ? 0 : prevIndex - CHUNK_SIZE
+    );
   };
 
   const handleNext = (indexSetter, dataLength) => {
-    indexSetter((prevIndex) => (prevIndex + CHUNK_SIZE >= dataLength ? prevIndex : prevIndex + CHUNK_SIZE));
+    indexSetter((prevIndex) =>
+      prevIndex + CHUNK_SIZE >= dataLength ? prevIndex : prevIndex + CHUNK_SIZE
+    );
   };
 
   const getDataChunk = (data, index) => {
@@ -92,11 +97,17 @@ const HumidityPage = () => {
             onNext={() => handleNext(setHumidityIndex, humidityData.length)}
           />
           <div className="button-container">
-            <button onClick={() => handlePrev(setHumidityIndex)} disabled={humidityIndex === 0}>
-            <FontAwesomeIcon icon={faArrowLeft} /> Previous
+            <button
+              onClick={() => handlePrev(setHumidityIndex)}
+              disabled={humidityIndex === 0}
+            >
+              <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
-            <button onClick={() => handleNext(setHumidityIndex, humidityData.length)} disabled={humidityIndex + CHUNK_SIZE >= humidityData.length}>
-               Next <FontAwesomeIcon icon={faArrowRight} />
+            <button
+              onClick={() => handleNext(setHumidityIndex, humidityData.length)}
+              disabled={humidityIndex + CHUNK_SIZE >= humidityData.length}
+            >
+              Next <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
         </div>

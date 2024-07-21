@@ -41,6 +41,8 @@ const TemperaturePage = () => {
               max: Math.max(...tempData.map((d) => d.value)),
             },
           });
+          setTemperatureIndex(Math.max(0, tempData.length - CHUNK_SIZE));
+
         } else {
           console.log('No data available');
         }

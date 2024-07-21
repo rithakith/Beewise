@@ -1,48 +1,50 @@
-import React, { useEffect, useState } from 'react';
-import { getDatabase, ref, onValue } from 'firebase/database';
-import GraphCard from '../../Components/GraphCard/GraphCard';
-import Navbar from '../../Components/Navbar/Navbar';
-import './AirQualityPage.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import GraphCard from "../../Components/GraphCard/GraphCard";
+import Navbar from "../../Components/Navbar/Navbar";
+import "./AirQualityPage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const AirQualityPage = () => {
-  const [airQualityData, setAirQualityData] = useState([]);
+const co2Page = () => {
+  const [co2Data, setco2Data] = useState([]);
   const [minMaxValues, setMinMaxValues] = useState({
-    airQuality: { min: null, max: null },
+    co2: { min: null, max: null },
   });
-  const [airQualityIndex, setAirQualityIndex] = useState(0);
+  const [co2Index, setco2Index] = useState(0);
   const CHUNK_SIZE = 50;
 
   useEffect(() => {
-    const dbRef = ref(getDatabase(), 'Sensor');
+    const dbRef = ref(getDatabase(), "Sensor");
 
     const unsubscribe = onValue(
       dbRef,
       (snapshot) => {
         if (snapshot.exists()) {
           const data = snapshot.val();
-          const airQualityData = [];
+          const co2Data = [];
 
           Object.keys(data).forEach((key) => {
             const entry = data[key];
             const entryDate = new Date(entry.time);
             const timestamp = `${entryDate.toLocaleDateString()} ${entryDate.toLocaleTimeString()}`;
 
-            if (entry.airQuality !== undefined) {
-              airQualityData.push({ name: timestamp, value: entry.airQuality });
+            if (entry.co2 !== undefined) {
+              co2Data.push({ name: timestamp, value: entry.CO2lvl });
             }
           });
 
-          setAirQualityData(airQualityData);
+          setco2Data(co2Data);
           setMinMaxValues({
-            airQuality: {
-              min: Math.min(...airQualityData.map((d) => d.value)),
-              max: Math.max(...airQualityData.map((d) => d.value)),
+            co2: {
+              min: Math.min(...co2Data.map((d) => d.value)),
+              max: Math.max(...co2Data.map((d) => d.value)),
             },
           });
+          setco2Index(Math.max(0, co2Data.length - CHUNK_SIZE));
+
         } else {
-          console.log('No data available');
+          console.log("No data available");
         }
       },
       (error) => {
@@ -54,11 +56,15 @@ const AirQualityPage = () => {
   }, []);
 
   const handlePrev = (indexSetter) => {
-    indexSetter((prevIndex) => (prevIndex - CHUNK_SIZE < 0 ? 0 : prevIndex - CHUNK_SIZE));
+    indexSetter((prevIndex) =>
+      prevIndex - CHUNK_SIZE < 0 ? 0 : prevIndex - CHUNK_SIZE
+    );
   };
 
   const handleNext = (indexSetter, dataLength) => {
-    indexSetter((prevIndex) => (prevIndex + CHUNK_SIZE >= dataLength ? prevIndex : prevIndex + CHUNK_SIZE));
+    indexSetter((prevIndex) =>
+      prevIndex + CHUNK_SIZE >= dataLength ? prevIndex : prevIndex + CHUNK_SIZE
+    );
   };
 
   const getDataChunk = (data, index) => {
@@ -66,9 +72,11 @@ const AirQualityPage = () => {
   };
 
   const getDateRange = (data, index) => {
-    if (data.length === 0) return '';
+    if (data.length === 0) return "";
     const startDate = new Date(data[index]?.name).toLocaleDateString();
-    const endDate = new Date(data[Math.min(index + CHUNK_SIZE - 1, data.length - 1)]?.name).toLocaleDateString();
+    const endDate = new Date(
+      data[Math.min(index + CHUNK_SIZE - 1, data.length - 1)]?.name
+    ).toLocaleDateString();
     return `${startDate} - ${endDate}`;
   };
 
@@ -77,25 +85,31 @@ const AirQualityPage = () => {
       <Navbar />
       <div className="content-air">
         <div className="box-analysis-container-airgraph">
-          <h2>CO<sub>2</sub> Level (ppm)</h2>
+          <h2>
+            CO<sub>2</sub> Level (ppm)
+          </h2>
           <GraphCard
             title=""
-            data={getDataChunk(airQualityData, airQualityIndex)}
-            dateRange={getDateRange(airQualityData, airQualityIndex)}
-            min={minMaxValues.airQuality.min}
-            max={minMaxValues.airQuality.max}
-            onPrev={() => handlePrev(setAirQualityIndex)}
-            onNext={() => handleNext(setAirQualityIndex, airQualityData.length)}
+            data={getDataChunk(co2Data, co2Index)}
+            dateRange={getDateRange(co2Data, co2Index)}
+            min={minMaxValues.co2.min}
+            max={minMaxValues.co2.max}
+            onPrev={() => handlePrev(setco2Index)}
+            onNext={() => handleNext(setco2Index, co2Data.length)}
           />
 
           <div className="button-container">
-            <button onClick={() => handlePrev(setAirQualityIndex)} disabled={airQualityIndex === 0}>
-            <FontAwesomeIcon icon={faArrowLeft} /> Previous
+            <button
+              onClick={() => handlePrev(setco2Index)}
+              disabled={co2Index === 0}
+            >
+              <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
-            <button onClick={() => handleNext(setAirQualityIndex, airQualityData.length)} disabled={airQualityIndex + CHUNK_SIZE >= airQualityData.length}>
-            Next <FontAwesomeIcon icon={faArrowRight} />
-
-
+            <button
+              onClick={() => handleNext(setco2Index, co2Data.length)}
+              disabled={co2Index + CHUNK_SIZE >= co2Data.length}
+            >
+              Next <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
         </div>
@@ -104,4 +118,4 @@ const AirQualityPage = () => {
   );
 };
 
-export default AirQualityPage;
+export default co2Page;

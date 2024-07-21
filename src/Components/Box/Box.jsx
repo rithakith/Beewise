@@ -1,21 +1,22 @@
-// Box.js
 import React from 'react';
 import InfoBox from '../InfoBox/InfoBox';
 import './Box.css';
 
-const Box = ({ box, index }) => {
-  console.log("this is box info", box);
+const Box = ({ box }) => {
   return (
     <div className="box">
-     
       <div className="info-boxes-container">
-        <InfoBox title="Temperature" value={box.temperature} unit="°C" />
-        <InfoBox title="Humidity" value={box.humidity} unit="%" />
-        <InfoBox title="Air Quality level (ppm)" value={box.co2Level} unit="ppm" />
-        <InfoBox title="Weight" value={box.weight} unit="g" />
-
+        <InfoBox title="Temperature" value={box.temperature} unit="°C" min={box.minTemperature} max={box.maxTemperature} />
+        <InfoBox title="Humidity" value={box.humidity} unit="%" min={box.minHumidity} max={box.maxHumidity} />
+        <InfoBox title="Air Quality Level" value={box.co2Level} unit="ppm" min={box.minCo2Level} max={box.maxCo2Level} />
+        <InfoBox title="Weight" value={box.weight} unit="g" min={box.minWeight} max={box.maxWeight} />
       </div>
-    
+      <div className="buttons-container">
+        <button onClick={() => window.location.href = '/temperature'}>More Details</button>
+        <button onClick={() => window.location.href = '/humidity'}>More Details</button>
+        <button onClick={() => window.location.href = '/airquality'}>More Details</button>
+        <button onClick={() => window.location.href = '/weight'}>More Details</button>
+      </div>
     </div>
   );
 };
