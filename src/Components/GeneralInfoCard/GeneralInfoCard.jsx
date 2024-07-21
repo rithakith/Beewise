@@ -62,7 +62,7 @@ const GeneralInfoCard = () => {
             onClick={handleToggle}
             className={`toggle-button ${syrup === 1 ? 'on' : 'off'}`}
           >
-            {syrup === 1 ? 'On' : 'Off'}
+            {syrup === 1 ? 'ON' : 'OFF'}
           </button>
         </div>
       </div>
