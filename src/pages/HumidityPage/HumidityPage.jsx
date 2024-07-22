@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import GraphCard from "../../Components/GraphCard/GraphCard";
 import Navbar from "../../Components/Navbar/Navbar";
-import "./HumidityPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faTint, faWater } from "@fortawesome/free-solid-svg-icons";
+import "./HumidityPage.css";
 
 const CHUNK_SIZE = 100;
 
@@ -85,8 +85,31 @@ const HumidityPage = () => {
     <>
       <Navbar />
       <div className="content-hum">
+        <div className="info-card">
+          <h2>Humidity Description</h2>
+          <p>
+            Inside the beehive box, maintaining a stable humidity level is crucial for the bees' health and productivity.
+            The humidity should ideally be between 40% to 60%.
+          </p>
+        </div>
+        <div className="min-max-card">
+          <div className="min-hum">
+            <FontAwesomeIcon icon={faTint} className="hum-icon" />
+            <div>
+              <strong>Min Humidity:</strong>
+              <p>{minMaxValues.humidity.min}%</p>
+            </div>
+          </div>
+          <div className="max-hum">
+            <FontAwesomeIcon icon={faWater} className="hum-icon" />
+            <div>
+              <strong>Max Humidity:</strong>
+              <p>{minMaxValues.humidity.max}%</p>
+            </div>
+          </div>
+        </div>
         <div className="box-analysis-container-humgraph">
-          <h2 className='tempt'>Humidity (%)</h2>
+          <h2 className="tempt">Humidity (%)</h2>
           <GraphCard
             title=""
             data={getDataChunk(humidityData, humidityIndex)}

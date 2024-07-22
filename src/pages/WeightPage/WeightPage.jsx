@@ -4,8 +4,7 @@ import GraphCard from '../../Components/GraphCard/GraphCard';
 import Navbar from '../../Components/Navbar/Navbar';
 import './WeightPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-
+import { faArrowLeft, faArrowRight, faWeightHanging, faWeight } from '@fortawesome/free-solid-svg-icons';
 
 const WeightPage = () => {
   const [weightData, setWeightData] = useState([]);
@@ -30,7 +29,7 @@ const WeightPage = () => {
             const entryDate = new Date(entry.time);
             const timestamp = `${entryDate.toLocaleDateString()} ${entryDate.toLocaleTimeString()}`;
 
-            if (entry.weight !== undefined) { // Correct key for weight data
+            if (entry.weight !== undefined) {
               weightData.push({ name: timestamp, value: entry.weight });
             }
           });
@@ -78,9 +77,32 @@ const WeightPage = () => {
   return (
     <>
       <Navbar />
-      <div className="content-air">
-        <div className="box-analysis-container-airgraph">
-          <h2 className='tempt'>Weight (g)</h2>
+      <div className="content-wei">
+        <div className="info-card">
+          <h2>Weight</h2><br />
+          <p>
+            Inside the beehive box, maintaining an optimal weight is essential for monitoring hive health and productivity.
+            The weight should ideally be consistent with expected hive growth and activity patterns.
+          </p>
+        </div>
+        <div className="min-max-card">
+          <div className="min-weight">
+            <FontAwesomeIcon icon={faWeightHanging} className="weight-icon" />
+            <div>
+              <strong>Min Weight:</strong>
+              <p>{minMaxValues.weight.min} g</p>
+            </div>
+          </div>
+          <div className="max-weight">
+            <FontAwesomeIcon icon={faWeight} className="weight-icon" />
+            <div>
+              <strong>Max Weight:</strong>
+              <p>{minMaxValues.weight.max} g</p>
+            </div>
+          </div>
+        </div>
+        <div className="box-analysis-container-weigraph">
+          <h2 className='weightt'>Weight (g)</h2>
           <GraphCard
             title=""
             data={getDataChunk(weightData, weightIndex)}
@@ -91,13 +113,13 @@ const WeightPage = () => {
             onNext={() => handleNext(setWeightIndex, weightData.length)}
           />
           <div className="button-container">
-
             <button className='graph-button' onClick={() => handlePrev(setWeightIndex)} disabled={weightIndex === 0}>
-            <FontAwesomeIcon icon={faArrowLeft} /> Previous
+              <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
             <button className='graph-button' onClick={() => handleNext(setWeightIndex, weightData.length)} disabled={weightIndex + CHUNK_SIZE >= weightData.length}>
-            Next <FontAwesomeIcon icon={faArrowRight} /> 
-</button></div>
+              Next <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+          </div>
         </div>
       </div>
     </>

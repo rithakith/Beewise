@@ -52,12 +52,12 @@ const GeneralInfoCard = () => {
     <div className="general-info-container">
       <div className="general-info-card">
         <div className="general-info-card-01">
-          <h2>General Information</h2>
+          <h2 className="general-name">General Information</h2>
           <p>Age of Beehive: {ageOfBeehive !== null ? `${ageOfBeehive} months` : 'Loading...'}</p>
           <p>Start Date: {startDate ? startDate.toLocaleDateString() : 'Invalid Date'}</p>
         </div>
         <div className="general-info-card-02">
-          <h2>Sugar Syrup Activation Mode:</h2>
+          <h2 className="sugar-name">Sugar Syrup Activation Mode:</h2>
           <button
             onClick={handleToggle}
             className={`toggle-button ${syrup === 1 ? 'on' : 'off'}`}
