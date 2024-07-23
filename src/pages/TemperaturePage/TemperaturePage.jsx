@@ -4,7 +4,7 @@ import GraphCard from '../../Components/GraphCard/GraphCard';
 import Navbar from '../../Components/Navbar/Navbar';
 import './TemperaturePage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight, faTemperatureLow, faTemperatureHigh } from '@fortawesome/free-solid-svg-icons';
 
 const TemperaturePage = () => {
   const [temperatureData, setTemperatureData] = useState([]);
@@ -42,7 +42,6 @@ const TemperaturePage = () => {
             },
           });
           setTemperatureIndex(Math.max(0, tempData.length - CHUNK_SIZE));
-
         } else {
           console.log('No data available');
         }
@@ -78,8 +77,32 @@ const TemperaturePage = () => {
     <>
       <Navbar />
       <div className="content-temp">
+        <div className="info-card">
+          <h2>Temperature</h2><br />
+          
+          <p>
+            Inside the beehive box, maintaining a stable temperature is crucial for the bees' health and productivity.
+            The temperature should ideally be between 32°C to 35°C.
+          </p>
+        </div>
+        <div className="min-max-card">
+          <div className="min-temp">
+            <FontAwesomeIcon icon={faTemperatureLow} className="temp-icon" />
+            <div>
+              <strong>Min Temperature:</strong>
+              <p>{minMaxValues.temperature.min}°C</p>
+            </div>
+          </div>
+          <div className="max-temp">
+            <FontAwesomeIcon icon={faTemperatureHigh} className="temp-icon" />
+            <div>
+              <strong>Max Temperature:</strong>
+              <p>{minMaxValues.temperature.max}°C</p>
+            </div>
+          </div>
+        </div>
         <div className="box-analysis-container-tempgraph">
-          <h2 className='tempt'>Temperature (°C)</h2>
+          <h2 className="tempt">Temperature (°C)</h2>
           <GraphCard
             title=""
             data={getDataChunk(temperatureData, temperatureIndex)}
@@ -90,10 +113,10 @@ const TemperaturePage = () => {
             onNext={() => handleNext(setTemperatureIndex, temperatureData.length)}
           />
           <div className="button-container">
-            <button className='graph-button' onClick={() => handlePrev(setTemperatureIndex)} disabled={temperatureIndex === 0}>
+            <button className="graph-button" onClick={() => handlePrev(setTemperatureIndex)} disabled={temperatureIndex === 0}>
               <FontAwesomeIcon icon={faArrowLeft} /> Previous
             </button>
-            <button className='graph-button' onClick={() => handleNext(setTemperatureIndex, temperatureData.length)} disabled={temperatureIndex + CHUNK_SIZE >= temperatureData.length}>
+            <button className="graph-button" onClick={() => handleNext(setTemperatureIndex, temperatureData.length)} disabled={temperatureIndex + CHUNK_SIZE >= temperatureData.length}>
               Next <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>

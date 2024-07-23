@@ -3,16 +3,73 @@
   margin-left: 250px;
 }
 
+.info-card {
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.info-card h2 {
+  margin-top: 0;
+}
+
+.min-max-card {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.min-temp, .max-temp {
+  display: flex;
+  align-items: center;
+}
+
+.temp-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.min-temp {
+  color: #007bff;
+}
+
+.max-temp {
+  color: #dc3545;
+}
+
 .box-analysis-container-tempgraph {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 40px;
   margin-bottom: 20px;
- 
 }
 
 .tempt {
   text-align: left;
   padding-bottom: 15px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.graph-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.graph-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }

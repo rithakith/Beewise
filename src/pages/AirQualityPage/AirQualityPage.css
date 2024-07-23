@@ -3,6 +3,46 @@
   margin-left: 250px;
 }
 
+.info-card {
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.info-card h2 {
+  margin-top: 0;
+}
+
+.min-max-card {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.min-co2, .max-co2 {
+  display: flex;
+  align-items: center;
+}
+
+.co2-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.min-co2 {
+  color: #007bff;
+}
+
+.max-co2 {
+  color: #dc3545;
+}
+
 .box-analysis-container-airgraph {
   background: #fff;
   border-radius: 8px;
@@ -11,7 +51,25 @@
   margin-bottom: 20px;
 }
 
-.tempt {
+.co2-title {
   text-align: left;
   padding-bottom: 15px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.graph-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.graph-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }

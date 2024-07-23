@@ -49,7 +49,7 @@ const GeneralInfoCard = ({age}) => {
           <p>Start Date: {startDate ? startDate.toLocaleDateString() : 'Invalid Date'}</p>
         </div>
         <div className="general-info-card-02">
-          <h2>Sugar Syrup Activation Mode:</h2>
+          <h2 className="sugar-name">Sugar Syrup Activation Mode:</h2>
           <button
             onClick={handleToggle}
             className={`toggle-button ${syrup === 1 ? 'on' : 'off'}`}
