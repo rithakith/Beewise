@@ -88,7 +88,7 @@ const AirQualityPage = () => {
           <h2>CO<sub>2</sub> Levels</h2><br />
           <p>
             Monitoring CO<sub>2</sub> levels is crucial for maintaining optimal air quality within the beehive. 
-            High levels can indicate poor ventilation or other issues that could impact the health of the bees.
+           
           </p>
         </div>
         <div className="min-max-card">

@@ -86,10 +86,11 @@ const HumidityPage = () => {
       <Navbar />
       <div className="content-hum">
         <div className="info-card">
-          <h2>Humidity Description</h2>
+          <h2>Humidity </h2> <br />
+          
           <p>
             Inside the beehive box, maintaining a stable humidity level is crucial for the bees' health and productivity.
-            The humidity should ideally be between 40% to 60%.
+           
           </p>
         </div>
         <div className="min-max-card">
