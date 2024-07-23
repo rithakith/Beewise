@@ -30,7 +30,7 @@ const co2Page = () => {
             const timestamp = `${entryDate.toLocaleDateString()} ${entryDate.toLocaleTimeString()}`;
 
             if (entry.co2 !== undefined) {
-              co2Data.push({ name: timestamp, value: entry.CO2lvl });
+              co2Data.push({ name: timestamp, value:entry.CO2lvl });
             }
           });
 

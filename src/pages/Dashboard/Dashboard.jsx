@@ -19,6 +19,7 @@ const Dashboard = () => {
     humidity: null,
     co2Level: null,
     weight: null,
+    age: null,
   });
 
   const [minMaxValues, setMinMaxValues] = useState({
@@ -52,6 +53,7 @@ const Dashboard = () => {
           let latestHum = null;
           let latestCo2 = null;
           let latestWeight = null;
+          let latestAge = null;
 
           Object.keys(data).forEach((key) => {
             const entry = data[key];
@@ -74,6 +76,9 @@ const Dashboard = () => {
               weightData.push({ name: timestamp, value: entry.weight });
               latestWeight = entry.weight;
             }
+            if (entry.age !== undefined) {
+              latestAge = entry.age;
+            }
           });
 
           setTemperatureData(tempData);
@@ -85,6 +90,7 @@ const Dashboard = () => {
             humidity: latestHum,
             co2Level: latestCo2,
             weight: latestWeight,
+            age: latestAge,
           });
 
           setMinMaxValues({
@@ -234,7 +240,7 @@ const Dashboard = () => {
                 temperatureData && temperatureData.length > 0
                   ? temperatureData[0].name
                   : null
-              }
+              } age={latestData.age}
             />
           </div>
         </div>

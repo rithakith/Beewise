@@ -2,19 +2,17 @@ import React, { useState, useEffect } from "react";
 import { getDatabase, ref, set } from "firebase/database";
 import "./GeneralInfoCard.css";
 
-const GeneralInfoCard = () => {
+const GeneralInfoCard = ({age}) => {
   const [syrup, setSyrup] = useState(2);
   const [startDate, setStartDate] = useState(null);
-  const [ageOfBeehive, setAgeOfBeehive] = useState(null);
+  const [ageOfBeehive, setAgeOfBeehive] = useState(age);
 
   useEffect(() => {
     const getStartDate = async () => {
       try {
-        const response = await fetch('/api/start-date');
-        const data = await response.json();
-        const startDate = new Date(data.startDate);
+        const now = new Date();
+        const startDate = new Date(now.setDate(now.getDate() - age));
         setStartDate(startDate);
-        const age = calculateBeehiveAge(startDate);
         setAgeOfBeehive(age);
       } catch (error) {
         console.error('Error fetching start date:', error);
@@ -22,7 +20,7 @@ const GeneralInfoCard = () => {
     };
 
     getStartDate();
-  }, []);
+  }, [ageOfBeehive]);
 
   const handleToggle = () => {
     const newSyrup = syrup === 2 ? 1 : 2;
@@ -41,19 +39,13 @@ const GeneralInfoCard = () => {
       });
   };
 
-  const calculateBeehiveAge = (startDate) => {
-    const now = new Date();
-    const diffTime = Math.abs(now - startDate);
-    const diffMonths = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 30.44)); // Average days in a month
-    return diffMonths;
-  };
-
+ 
   return (
     <div className="general-info-container">
       <div className="general-info-card">
         <div className="general-info-card-01">
           <h2>General Information</h2>
-          <p>Age of Beehive: {ageOfBeehive !== null ? `${ageOfBeehive} months` : 'Loading...'}</p>
+          <p>Age of Beehive: {ageOfBeehive !== null ? `${ageOfBeehive} days` : 'Loading...'}</p>
           <p>Start Date: {startDate ? startDate.toLocaleDateString() : 'Invalid Date'}</p>
         </div>
         <div className="general-info-card-02">
