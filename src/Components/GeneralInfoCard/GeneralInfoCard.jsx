@@ -2,25 +2,17 @@ import React, { useState, useEffect } from "react";
 import { getDatabase, ref, set } from "firebase/database";
 import "./GeneralInfoCard.css";
 
-const GeneralInfoCard = ({age}) => {
+const GeneralInfoCard = ({ age }) => {
   const [syrup, setSyrup] = useState(2);
   const [startDate, setStartDate] = useState(null);
-  const [ageOfBeehive, setAgeOfBeehive] = useState(age);
 
   useEffect(() => {
-    const getStartDate = async () => {
-      try {
-        const now = new Date();
-        const startDate = new Date(now.setDate(now.getDate() - age));
-        setStartDate(startDate);
-        setAgeOfBeehive(age);
-      } catch (error) {
-        console.error('Error fetching start date:', error);
-      }
-    };
-
-    getStartDate();
-  }, [ageOfBeehive]);
+    // Calculate the start date by subtracting the age (in days) from the current date
+    const now = new Date();
+    const calculatedStartDate = new Date(now);
+    calculatedStartDate.setDate(now.getDate() - age);
+    setStartDate(calculatedStartDate);
+  }, [age]);
 
   const handleToggle = () => {
     const newSyrup = syrup === 2 ? 1 : 2;
@@ -39,17 +31,16 @@ const GeneralInfoCard = ({age}) => {
       });
   };
 
- 
   return (
     <div className="general-info-container">
       <div className="general-info-card">
         <div className="general-info-card-01">
           <h2>General Information</h2>
-          <p>Age of Beehive: {ageOfBeehive !== null ? `${ageOfBeehive} days` : 'Loading...'}</p>
+          <p>Age of Beehive: {age !== null ? `${age} days` : 'Loading...'}</p>
           <p>Start Date: {startDate ? startDate.toLocaleDateString() : 'Invalid Date'}</p>
         </div>
         <div className="general-info-card-02">
-          <h2 className="sugar-name">Sugar Syrup Activation Mode:</h2>
+          <h2>Sugar Syrup Activation Mode:</h2>
           <button
             onClick={handleToggle}
             className={`toggle-button ${syrup === 1 ? 'on' : 'off'}`}
