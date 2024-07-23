@@ -82,7 +82,7 @@ const TemperaturePage = () => {
           
           <p>
             Inside the beehive box, maintaining a stable temperature is crucial for the bees' health and productivity.
-            The temperature should ideally be between 32°C to 35°C.
+            
           </p>
         </div>
         <div className="min-max-card">

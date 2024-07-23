@@ -37,6 +37,8 @@
   align-items: center;
 }
 
+
+
 .toggle-button {
   padding: 12px 35px; /* Adjust padding for desired button size */
   min-width: 100px; /* Ensure button has a minimum width */
@@ -57,9 +59,11 @@
 .toggle-button.off {
   background-color: gray;
 }
+
 .general-name {
   padding-bottom: 15px;
 }
+
 .sugar-name {
   padding-bottom: 15px;
 }
