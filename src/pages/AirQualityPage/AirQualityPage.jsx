@@ -29,8 +29,8 @@ const AirQualityPage = () => {
             const entryDate = new Date(entry.time);
             const timestamp = `${entryDate.toLocaleDateString()} ${entryDate.toLocaleTimeString()}`;
 
-            if (entry.co2 !== undefined) {
-              co2Data.push({ name: timestamp, value: entry.co2 });
+            if (entry.CO2lvl !== undefined) {
+              co2Data.push({ name: timestamp, value: entry.CO2lvl });
             }
           });
 
