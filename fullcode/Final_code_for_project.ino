@@ -66,8 +66,8 @@ HX711 scale4;
 #define DHTTYPE DHT21   // Define the type of sensor
 
 // Constants for calibration
-const float RLOAD = 1.0; // Load resistance in kilo ohms
-const float RZERO = 15.0; // Base resistance in clean air (to be calibrated)
+const float RLOAD = 9.3; // Load resistance in kilo ohms
+const float RZERO = 79.02; // Base resistance in clean air (to be calibrated)
 const float PARA = 116.6020682; // Constants for calculating ppm
 const float PARB = 2.119034857; // Constants for calculating ppm
 
